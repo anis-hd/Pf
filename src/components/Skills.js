@@ -5,24 +5,17 @@ import SkillCard from "./SkillCard.js"
 
 import javascript from "../assets/skills/javascript.svg"
 import bash from "../assets/skills/bash.svg"
-import kvm from "../assets/skills/kvm.svg"
 import linux from "../assets/skills/linux.svg"
 import python from "../assets/skills/python.svg"
 import reactIcon from "../assets/skills/react.svg"
 import tailwind from "../assets/skills/tailwind.svg"
-import mikrotik from "../assets/skills/mikrotik.svg"
-import kubernetes from "../assets/skills/kubernetes.svg"
-import ansible from "../assets/skills/ansible.svg"
-import windows from "../assets/skills/windows.svg"
-import react from "../assets/skills/react.svg"
 import cisco from "../assets/skills/cisco.svg"
 import docker from "../assets/skills/docker.svg"
 import git from "../assets/skills/git.svg"
-import express from "../assets/skills/express.svg"
-import gitlab from "../assets/skills/gitlab.svg"
-
+import tensorflow from "../assets/skills/tensorflow.png"
 import hr from "../assets/curve-hr.svg"
-
+import pytorch from "../assets/skills/pytorch.svg"
+import scikitlearn from "../assets/skills/scikitlearn.png"
 export default function Skills() {
     const settings = {
         dots: false,
@@ -39,19 +32,18 @@ export default function Skills() {
 
             <div className="mt-4">
                 <Slider {...settings}>
-                <SkillCard name="linux" experience="1 years" img={linux} />
-                <SkillCard name="bash" experience="1 years" img={bash} />
-                <SkillCard name="python" experience="1 years" img={python} />
+                <SkillCard name="linux" experience="5 years" img={linux} />
+                <SkillCard name="bash" experience="5 years" img={bash} />
+                <SkillCard name="python" experience="5 years" img={python} />
                 <SkillCard name="javascript" experience="1 years" img={javascript} />
                 <SkillCard name="react" experience="1 years" img={reactIcon} />
                 <SkillCard name="tailwind" experience="1 years" img={tailwind} />
-                <SkillCard name="windows" experience="1 years" img={windows} />
-                <SkillCard name="react" experience="1 years" img={react} />
                 <SkillCard name="cisco" experience="1 years" img={cisco} />
                 <SkillCard name="docker" experience="1 years" img={docker} />
-                <SkillCard name="git" experience="1 years" img={git} />
-                <SkillCard name="express" experience="1 years" img={express} />
-                <SkillCard name="gitlab" experience="1 years" img={gitlab} />
+                <SkillCard name="git" experience="2 years" img={git} />
+                <SkillCard name="tensorflow" experience="1 years" img={tensorflow} />
+                <SkillCard name="pytorch" experience="1 years" img={pytorch} />
+                <SkillCard name="scikitlearn" experience="1 years" img={scikitlearn} />
                 </Slider>
             </div>
             <img src={hr} className="w-full mt-8 md:h-3" alt="hr" />

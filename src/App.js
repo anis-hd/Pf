@@ -12,7 +12,7 @@ import 'aos/dist/aos.css';
 
 function App() {
     useEffect(() => {
-      document.title = 'Damasukma Trihanandi';
+      document.title = 'Anis Houidi';
       AOS.init();
     }, []);
   return (

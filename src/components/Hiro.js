@@ -23,9 +23,9 @@ export default function Hiro () {
                     <h1 className="text-xl text-gray-400">Hi, I'm</h1>
                     <h1 className="text-2xl font-bold">Anis Houidi</h1>
                     <p class="text-xl font-bold text-gray-300">I'm a <Typewriter text="Computer Science Engineering Student" delay={120} infinite/></p>
-                    <p className="text-md font-light text-gray-400 "></p>
+                    <p className="text-md font-light text-gray-400 ">Engineering student curious to unravel the limitless possibilities that Artificial Intelligence offers in various fields of the industry.</p>
                 </div>
-                <a href='http://blog.dama.zip' className='mt-2 block'>Check my LinkedIn<FontAwesomeIcon className='ml-2' icon={faCircleArrowRight}/> </a>
+                <a href='https://www.linkedin.com/in/anis-ben-houidi/' className='mt-2 block'>Check my LinkedIn<FontAwesomeIcon className='ml-2' icon={faCircleArrowRight}/> </a>
                 
                 <ul className='flex mt-2 gap-4 items-center'>
                    <li>
