@@ -9,9 +9,8 @@ export default function Honors(){
             <p className="font-light text-gray-400">Here are some of my honors and awards</p>
 
             <div className="flex flex-col md:flex-row mt-4 gap-5">
-                <HonorCard name="Top 10 SELEKNAS ASEAN Skills Competition ITNSA 2022" issued="KEMENAKER RI" desc="Linux Server, Windows Server, Linux Routing, Cisco Troubleshooting, Cisco Network Analysis, Network and System Programmabillity, Containerized Service." />
-                <HonorCard name="3rd Place Winner of IT Network System Administration - LKS Jawa Tengah" issued="KEMENDIKBUD RI" desc="Linux Server, Windows Server, Cisco Configuration, Cisco Troubleshooting, Network and System Programmabillity, Containerized Service." />
-                <HonorCard name="1st Place Winner of IT Network System Administration - LKS Kab. Tegal" issued="KEMENDIKBUD RI" desc="Linux Server, Cisco Configuration." />
+                <HonorCard name="Nabeul Preparatory Institute for Engineering Studies" issued="Physics and Chemistry" desc="Two years of intensive studies in Mathematics, Physics and Industrial Sciences for the national engineering school entrance exams. Ranked 80/1200 on the PC exam." />
+                <HonorCard name="National School of Computer Sciences" issued="Computer Science Engineering Degree" desc="Three years of engineering mathematics, computer science, networks, linux and Unix systems, finance and banking systems" />
             </div>
             <img src={hr} className="w-full mt-8 md:h-2" alt="hr" />
         </div>
