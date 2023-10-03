@@ -1,5 +1,5 @@
 import {useState} from 'react'
-
+import Typewriter from './Typewriter';
 import profile from '../assets/profile.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faCircleArrowRight, } from "@fortawesome/free-solid-svg-icons";
@@ -27,7 +27,7 @@ export default function Hiro () {
                 <div className="flex flex-col w-full mt-8">
                     <h1 className="text-xl text-gray-400">Hi, I'm</h1>
                     <h1 className="text-2xl font-bold">Damasukma Trihanandi</h1>
-                    <p class="text-xl font-bold text-gray-300">Cloud Engineer</p>
+                    <p class="text-xl font-bold text-gray-300">I'm a <Typewriter text="Cloud Engineer" delay={300} infinite/></p>
                     <p className="text-md font-light text-gray-400 ">Enthusiastic and motivated self-learning in Information Technology. Interested in exploring about Computer Network, Cloud Computing, DevSecops, and Web Development. Now I am looking for more experience in my field.</p>
                 </div>
                 <a href='http://blog.dama.zip' className='mt-2 block'>Read My Blog <FontAwesomeIcon className='ml-2' icon={faCircleArrowRight}/> </a>
