@@ -1,10 +1,9 @@
-import {useState} from 'react'
+import React from "react";
 import myGif from "../assets/lain.gif";
 import Typewriter from './Typewriter';
-import profile from '../assets/profile.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faCircleArrowRight, } from "@fortawesome/free-solid-svg-icons";
-import {  faFacebook, faGithub, faInstagram, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
+import {  faFacebook, faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import hr from '../assets/curve-hr.svg'
 
 export default function Hiro () {
@@ -13,7 +12,6 @@ export default function Hiro () {
 
     return (
         <>
-
         <div id="home" className="flex w-full h-screen flex-col md:flex-row gap-5 items-center justify-center text-white relative">
             <div className='md:w-3/6 md:p-4'>
             <img src={myGif} alt="my-gif" />
@@ -23,7 +21,7 @@ export default function Hiro () {
             <div className='md:w-3/6' data-aos="fade-right" data-aos-duration="1000" data-aos-offset="100" >
                 <div className="flex flex-col w-full mt-8">
                     <h1 className="text-xl text-gray-400">Hi, I'm</h1>
-                    <h1 className="text-2xl font-bold">Anis Ben Houidi</h1>
+                    <h1 className="text-2xl font-bold">Anis Houidi</h1>
                     <p class="text-xl font-bold text-gray-300">I'm a <Typewriter text="Computer Science Engineering Student" delay={120} infinite/></p>
                     <p className="text-md font-light text-gray-400 "></p>
                 </div>
