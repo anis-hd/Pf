@@ -8,6 +8,7 @@ import Projects from './components/Projects';
 import Footer from './components/Footer';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Experience from './components/Experience';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
       <Hiro />
       <Skills />
       <Education />
+      <Experience/>
       <Projects />
       <Footer />
     </div>
