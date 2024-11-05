@@ -21,7 +21,7 @@ export default function Projects(){
             {/* <div className="flex flex-col md:flex-row flex-wrap mt-4 gap-5"> */}
             <div className="grid grid-cols-1 md:grid-cols-3 justify-center mt-4 gap-5">
                 <ProjectCard name="Big data user behavior analysis" img={bigdata} issued="Set up a distributed, multi-node HDFS environment in Docker. Used MapReduce to filter raw data, followed by data cleaning with Pig and Spark to create structured datasets. Leveraged Hive for complex queries, extracting insights on buying patterns." date="November 2024" />
-                <ProjectCard name="Business Intelligence data pipeline and visualization" img={bi} issued="Used Apache NiFi with Power BI to automate the ingestion, processing, and visualization of sales data from a CSV file, enabling real-time insights through dashboards." date="October 2024" />
+                <ProjectCard name="Business Intelligence data pipeline and visualization" img={bi} issued="Used Apache NiFi with Power BI to automate the ingestion, processing, and visualization of data from a CSV file, enabling real-time insights through dashboards." date="October 2024" />
 
                 <ProjectCard name="Cryptographic key rotation optimization with Deep Reinforcement Learning" img={crypt} issued="This was a proof of concept for DeepFlow AI Hackathon, winning first place from the technical jury. Keywords: Deep Q-Networks, Tensorflow, Gym" date="October 2024" />
 
