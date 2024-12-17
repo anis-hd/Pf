@@ -12,7 +12,6 @@ export default function Education(){
                 <EdCard name="Preparatory Institute for Engineering Studies of Nabeul" issued="Physics and Chemistry" desc="Two years of intensive studies in Mathematics, Physics and Industrial Sciences for the national engineering contest." />
                 <EdCard name="National School of Computer Science" issued="Computer Science Engineering Degree" desc="Computer science, software engineering and applied mathematics. Specializing in artificial intelligence on the final year." />
             </div>
-            <img src={hr} className="w-full mt-8 md:h-2" alt="hr" />
         </div>
     )
 }

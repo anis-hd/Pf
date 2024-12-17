@@ -12,7 +12,6 @@ export default function Footer(){
         <li><a href="#certs" className="hover:underline">Projects</a></li>
       </ul>
 
-      <img src={hr} className="mb-4 mt-4 w-full md:h-1 text-white bottom-0" alt="hr" />
 
 
     </div>

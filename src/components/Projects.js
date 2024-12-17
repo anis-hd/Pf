@@ -32,7 +32,6 @@ export default function Projects(){
                 <ProjectCard name="Wordle Clone in Android Studio" img={wordle} issued="Android Studio, Java, OOP" date="June - July 2022" />
                 <ProjectCard name="Essence: A chemistry Companion App" img={Ptable} issued="Flutter, Dart, OOP" date="March - May 2022" />
             </div>
-            <img src={hr} className="w-full mt-8 md:h-2" alt="hr" />
         </div>
     )
 }

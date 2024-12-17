@@ -63,7 +63,6 @@ export default function Skills() {
 
                 </Slider>
             </div>
-            <img src={hr} className="w-full mt-8 md:h-3" alt="hr" />
         </div>
     )
 }

@@ -43,7 +43,6 @@ innovative projects, gain valuable industry experience, and continue to grow pro
                     </li>
                 </ul>
             </div>
-            <img src={hr} className="w-full md:h-2 absolute bottom-0" alt="hr" />
         </div>
         </>
     )
