@@ -10,7 +10,7 @@ export default function Education(){
 
             <div className="flex flex-col md:flex-row mt-4 gap-5">
                 <EdCard name="Preparatory Institute for Engineering Studies of Nabeul" issued="Physics and Chemistry" desc="Two years of intensive studies in Mathematics, Physics and Industrial Sciences for the national engineering contest." />
-                <EdCard name="National School of Computer Science" issued="Computer Science Engineering Degree" desc="Computer science, software engineering and applied mathematics. Specializing in artificial intelligence on the final year." />
+                <EdCard name="National School of Computer Science" issued="M.Eng Computer Science, AI & Decision Systems" desc="Computer science, software engineering and applied mathematics." />
             </div>
         </div>
     )
