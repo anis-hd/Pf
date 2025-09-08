@@ -21,7 +21,7 @@ export default function Experience() {
                 />
                 <ExpCard
                     img={imgTalan}
-                    name="Research Intern"
+                    name="End of Studies AI Research Intern"
                     issued="Talan - Tunisie"
                     date="Feb 2025 - Jun 2025"
                     desc="Developed a video compression framework using RAFT for motion prediction, Hyperprior Entropy Coding, and Quantum Fourier Transform (QFT)."
