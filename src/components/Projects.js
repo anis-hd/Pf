@@ -101,15 +101,15 @@ const projectData = [
             "A Pix2Pix model, which is a type of Conditional GAN, was used. It was trained on a large dataset of paired images (sketches and their corresponding photos) to learn the complex mapping from the sketch domain to the realistic image domain."
         ]
     },
-    {
-        name: "Big data user behavior analysis",
+ {
+        name: "Real-Time Weather Data Pipeline",
         img: bigdata,
         issued: "Academic Project",
-        desc: "Set up a distributed, multi-node HDFS environment in Docker. Used MapReduce, Pig, and Spark for data processing, and Hive for querying.",
+        desc: "Engineered a multi-node big data pipeline using HDFS, Spark, and Cassandra to process and store real-time weather data.",
         date: "November 2024",
         details: [
-            "This project involved analyzing a massive dataset of user behavior logs to extract actionable insights. A multi-node Hadoop Distributed File System (HDFS) was simulated using Docker to handle the sheer volume of data.",
-            "The data processing pipeline began with MapReduce for initial filtering. Apache Pig was used for scripting complex data transformations, followed by Apache Spark for faster, in-memory computations. Finally, Apache Hive was layered on top, allowing for complex SQL-like queries to uncover user buying patterns and engagement metrics."
+            "This project involved architecting a complete big data ecosystem. The foundation was a multi-node cluster running the Hadoop Distributed File System (HDFS), which provided a scalable and fault-tolerant storage layer for the raw, incoming weather data from the OpenWeather API.",
+            "Apache Spark's Structured Streaming was used as the real-time processing engine. It ingested the data, performed transformations and aggregations in-memory, and then implemented a dual-storage strategy: the processed, query-ready results were written to Apache Cassandra for low-latency access, while the raw historical data was persisted in HDFS for long-term storage and potential batch analysis."
         ]
     },
     {
