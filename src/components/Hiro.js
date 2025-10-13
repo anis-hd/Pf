@@ -32,7 +32,7 @@ innovative projects, gain valuable industry experience, and continue to grow pro
 
                 <ul className='flex mt-2 gap-4 items-center'>
                    <li>
-                        <a href='https://github.com/4nisHd' rel="noreferrer" target="_blank"><FontAwesomeIcon size='2xl' icon={faGithub} /></a>
+                        <a href='https://github.com/anis-hd' rel="noreferrer" target="_blank"><FontAwesomeIcon size='2xl' icon={faGithub} /></a>
                    </li>
                     <li>
                         <a href='https://www.linkedin.com/in/anis-ben-houidi/' rel="noreferrer" target="_blank"><FontAwesomeIcon size='2xl' icon={faLinkedinIn} /></a>
