@@ -24,9 +24,7 @@ export default function Hiro () {
                 <div className="flex flex-col w-full mt-8">
                     <h1 className="text-2xl font-bold">Anis Ben Houidi</h1>
                     <p class="text-xl font-bold text-gray-300">A <Typewriter text="Computer Science Engineering Student " delay={120} infinite/></p>
-                    <p className="text-md font-light text-gray-400 ">A final year computer science engineering student with a passion for solving complex challenges, with out-of-the-box thinking and strong analytical skills. Interested in emerging technologies, especially Artificial
-Intelligence and Machine Learning, with the goal of leveraging my education and expertise to contribute to
-innovative projects, gain valuable industry experience, and continue to grow professionally.</p>
+                    <p className="text-md font-light text-gray-400 ">A computer science engineering graduate with a passion for solving complex challenges through out-of-the-box thinking and strong analytical skills. Interested in emerging technologies, especially Artificial Intelligence and Machine Learning, with the goal of leveraging my education and expertise to contribute to innovative projects, gain valuable industry experience, and continue to grow professionally.</p>
                 </div>
                 <a href='https://www.linkedin.com/in/anis-ben-houidi/' className='mt-2 block'>Lets connect!<FontAwesomeIcon className='ml-2' icon={faCircleArrowRight}/> </a>
 
