@@ -101,7 +101,7 @@ const projectData = [
             "A Pix2Pix model, which is a type of Conditional GAN, was used. It was trained on a large dataset of paired images (sketches and their corresponding photos) to learn the complex mapping from the sketch domain to the realistic image domain."
         ]
     },
- {
+    {
         name: "Real-Time Weather Data Pipeline",
         img: bigdata,
         issued: "Academic Project",
@@ -208,6 +208,7 @@ const projectData = [
 
 export default function Projects() {
     const [selectedProject, setSelectedProject] = useState(null);
+    const [isCollapsed, setIsCollapsed] = useState(false);
 
     const handleCardClick = (project) => {
         setSelectedProject(project);
@@ -218,21 +219,34 @@ export default function Projects() {
     };
 
     return (
-        <div id="certs" className="mt-4 text-white">
-            <h1 className="text-2xl font-bold">Projects</h1>
-            <p className="font-light text-gray-400">Here are some of my projects</p>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 justify-center mt-4 gap-5">
-                {projectData.map((project, index) => (
-                    <ProjectCard 
-                        key={index} 
-                        project={project}
-                        onClick={handleCardClick}
-                    />
-                ))}
+        <div id="certs" className="mt-12 text-white transition-all duration-300">
+            <div
+                className="flex items-center justify-between cursor-pointer group"
+                onClick={() => setIsCollapsed(!isCollapsed)}
+            >
+                <h1 className="text-4xl font-bold mb-6 border-b-4 border-primary w-fit pb-2">Projects</h1>
+                <div className={`transform transition-transform duration-300 ${isCollapsed ? '-rotate-90' : 'rotate-0'}`}>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-gray-400 group-hover:text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                </div>
             </div>
-            
-            <Modal project={selectedProject} onClose={handleCloseModal} />
+
+            <div className={`overflow-hidden transition-all duration-500 ease-in-out ${isCollapsed ? 'max-h-0 opacity-0' : 'max-h-[4000px] opacity-100'}`}>
+                <p className="font-light text-gray-400">Here are some of my projects</p>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 justify-center mt-4 gap-5">
+                    {projectData.map((project, index) => (
+                        <ProjectCard
+                            key={index}
+                            project={project}
+                            onClick={handleCardClick}
+                        />
+                    ))}
+                </div>
+
+                <Modal project={selectedProject} onClose={handleCloseModal} />
+            </div>
         </div>
     );
 }

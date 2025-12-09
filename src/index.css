@@ -2,13 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #050505;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
 }
 
 code {
@@ -18,47 +41,47 @@ code {
 
 /* Container for each skill card (no changes here) */
 .skill-card-container {
-    width: 100px;
-    height: 100px;
-    padding: 1.25rem;
-    position: relative;
-    background-color: #1f2937;
-    transition: transform 0.2s ease-out, z-index 0.2s ease-out;
-    will-change: transform;
+  width: 100px;
+  height: 100px;
+  padding: 1.25rem;
+  position: relative;
+  background-color: #222222;
+  transition: transform 0.2s ease-out, z-index 0.2s ease-out;
+  will-change: transform;
 }
 
 /* This pseudo-element creates the glowing SQUARE border effect */
 .skill-card-container::before {
-    content: '';
-    position: absolute;
-    inset: 0; /* Align perfectly with the parent */
-    z-index: -1;
-    
-    /* --- NEW METHOD FOR SQUARE BORDERS --- */
-    /* 1. Create a transparent border for the image to be painted on */
-    border: 3px solid transparent; /* Controls the thickness of the glow */
+  content: '';
+  position: absolute;
+  inset: 0;
+  /* Align perfectly with the parent */
+  z-index: -1;
 
-    /* 2. Use the conic-gradient as the source for the border's appearance */
-    border-image-source: conic-gradient(
-        from var(--glow-angle) at 50% 50%,
-        rgba(255, 255, 255, 0.8),
-        transparent 50%
-    );
+  /* --- NEW METHOD FOR SQUARE BORDERS --- */
+  /* 1. Create a transparent border for the image to be painted on */
+  border: 3px solid transparent;
+  /* Controls the thickness of the glow */
 
-    /* 3. Tell the browser to use the entire gradient for the border */
-    border-image-slice: 1;
-    /* --- END NEW METHOD --- */
+  /* 2. Use the conic-gradient as the source for the border's appearance */
+  border-image-source: conic-gradient(from var(--glow-angle) at 50% 50%,
+      rgba(255, 255, 255, 0.8),
+      transparent 50%);
 
-    /* Control the fading with the CSS variable */
-    opacity: var(--glow-opacity, 0);
-    transition: opacity 0.2s ease-out;
+  /* 3. Tell the browser to use the entire gradient for the border */
+  border-image-slice: 1;
+  /* --- END NEW METHOD --- */
+
+  /* Control the fading with the CSS variable */
+  opacity: var(--glow-opacity, 0);
+  transition: opacity 0.2s ease-out;
 }
 
 /* Styles for the logo image itself (no changes here) */
 .skill-logo {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    position: relative;
-    z-index: 2;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
 }

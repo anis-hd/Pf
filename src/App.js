@@ -1,5 +1,5 @@
 import './App.css';
-import {useEffect} from 'react'
+import { useEffect } from 'react'
 import Navbar from './components/Navbar';
 import Hiro from './components/Hiro';
 import Skills from './components/Skills'
@@ -12,17 +12,17 @@ import Experience from './components/Experience';
 
 
 function App() {
-    useEffect(() => {
-      document.title = 'Anis Houidi';
-      AOS.init();
-    }, []);
+  useEffect(() => {
+    document.title = 'Anis Houidi';
+    AOS.init();
+  }, []);
   return (
-    <div className="px-6 lg:px-20 xl:px-36 bg-dark-500">
+    <div className="px-6 lg:px-20 xl:px-36 bg-gradient-to-b from-dark-500 to-dark-600 min-h-screen">
       <Navbar />
       <Hiro />
       <Skills />
       <Education />
-      <Experience/>
+      <Experience />
       <Projects />
       <Footer />
     </div>
