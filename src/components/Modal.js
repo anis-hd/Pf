@@ -14,36 +14,36 @@ export default function Modal({ project, onClose }) {
         >
             {/* The Modal itself */}
             <div
-                className="bg-dark-200 shadow-2xl w-full max-w-6xl max-h-[90vh] flex flex-col md:flex-row overflow-hidden"
+                className="bg-dark-200 shadow-2xl w-full max-w-4xl max-h-[90vh] flex flex-col overflow-y-auto"
                 onClick={e => e.stopPropagation()}
             >
-                {/* --- Left Column: Image --- */}
-                <div className="md:w-1/2 w-full bg-black">
+                {/* --- Image Section: Full Width on Top --- */}
+                <div className="w-full h-64 md:h-96 bg-dark-200 relative flex-shrink-0">
                     <img
                         src={project.img}
-                        className="w-full h-full object-contain"
+                        className="w-full h-full object-cover"
                         alt={project.name}
                     />
+                    <button
+                        onClick={onClose}
+                        className="absolute top-4 right-4 text-white hover:text-gray-300 text-4xl font-bold leading-none bg-black/50 w-10 h-10 flex items-center justify-center"
+                    >
+                        &times;
+                    </button>
                 </div>
 
-                {/* --- Right Column: Text Content --- */}
-                <div className="md:w-1/2 w-full p-8 flex flex-col">
+                {/* --- Text Content --- */}
+                <div className="w-full p-8 flex flex-col">
                     {/* --- Modal Header --- */}
-                    <div className="flex justify-between items-start">
+                    <div className="mb-2">
                         <h2 className="text-3xl font-bold text-white">{project.name}</h2>
-                        <button
-                            onClick={onClose}
-                            className="text-gray-400 hover:text-white text-4xl font-bold leading-none -mt-2"
-                        >
-                            &times;
-                        </button>
                     </div>
 
                     <p className="text-lg text-gray-300 mt-2 border-b border-gray-700 pb-4">{project.issued}</p>
 
                     {/* --- UPDATED Scrollable Content Area --- */}
                     {/* This section now dynamically renders project details */}
-                    <div className="mt-4 text-gray-400 space-y-4 overflow-y-auto flex-grow">
+                    <div className="mt-4 text-gray-400 space-y-4">
                         {/* Renders the short description first */}
                         <p>{project.desc}</p>
 
