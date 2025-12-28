@@ -211,7 +211,7 @@ export default function Hiro() {
                                 {/* "Learned Video Compression" Label - On Video */}
                                 <div className="absolute top-4 left-4">
                                     <span className="px-3 py-1.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full text-xs font-semibold uppercase tracking-wider shadow-lg">
-                                        Learned Video Compression
+                                        Learned Video Codec
                                     </span>
                                 </div>
                             </div>
@@ -219,7 +219,7 @@ export default function Hiro() {
 
                         {/* Description Text - Below Video */}
                         <p className="mt-4 text-center text-gray-400 text-sm md:text-base font-light">
-                            80% of the frames in this video are reconstructed during decoding
+                            80% of the frames in this video are reconstructed during decoding.
                         </p>
 
                         {/* Click for More Link */}
