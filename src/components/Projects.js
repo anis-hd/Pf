@@ -273,12 +273,7 @@ export default function Projects() {
                     data-aos="fade-up"
                 >
                     <div className="flex items-center gap-4">
-                        <h2
-                            className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent transition-all duration-75 ease-out"
-                            style={{
-                                backgroundImage: `radial-gradient(circle at ${mousePos.x}% ${mousePos.y}%, #6366f1, #d946ef, #0ea5e9)`
-                            }}
-                        >
+                        <h2 className="text-4xl md:text-5xl font-bold text-white">
                             Projects
                         </h2>
                         <div className="hidden md:block h-1 w-24 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 rounded-full" />
@@ -304,8 +299,8 @@ export default function Projects() {
                                 key={idx}
                                 onClick={() => setActiveCategory(cat)}
                                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeCategory === cat
-                                        ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white'
-                                        : 'bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:border-purple-500/50'
+                                    ? 'bg-white text-dark-500'
+                                    : 'bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:border-white/50'
                                     }`}
                             >
                                 {cat}
@@ -431,7 +426,7 @@ export default function Projects() {
                         <div className="p-6 -mt-16 relative z-10">
                             {/* Category & Date */}
                             <div className="flex items-center gap-3 mb-4">
-                                <span className="px-3 py-1 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-xs font-medium">
+                                <span className="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white text-xs font-medium">
                                     {selectedProject.category}
                                 </span>
                                 <span className="text-gray-400 text-sm flex items-center gap-2">
@@ -441,7 +436,7 @@ export default function Projects() {
                             </div>
 
                             {/* Title */}
-                            <h2 className="text-2xl md:text-3xl font-bold mb-2 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                            <h2 className="text-2xl md:text-3xl font-bold mb-2 text-white">
                                 {selectedProject.name}
                             </h2>
 

@@ -78,13 +78,8 @@ export default function Hiro() {
                 <div className='lg:w-1/2 flex flex-col justify-center order-2 lg:order-1' data-aos="fade-right" data-aos-duration="1000">
                     <div className="flex flex-col w-full">
                         {/* Large Name with Gradient */}
-                        <h1
-                            className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4 leading-tight bg-clip-text text-transparent transition-all duration-75 ease-out"
-                            style={{
-                                backgroundImage: `radial-gradient(circle at ${mousePos.x}% ${mousePos.y}%, #6366f1, #d946ef, #0ea5e9)`
-                            }}
-                        >
-                            Anis Ben Houidi
+                        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4 leading-tight text-white">
+                            Anis Houidi
                         </h1>
                         <p className="text-xl md:text-2xl font-semibold text-gray-300 mb-6">
                             <span className="text-primary">
@@ -140,15 +135,12 @@ export default function Hiro() {
                         onMouseLeave={() => setIsHovered(false)}
                     >
                         {/* "Check This Out" Heading - Above Video */}
-                        <h3 className="text-2xl md:text-3xl font-bold mb-4 text-center bg-gradient-to-r from-purple-400 via-pink-500 to-blue-400 bg-clip-text text-transparent">
+                        <h3 className="text-2xl md:text-3xl font-bold mb-4 text-center text-white">
                             Check This Out!
                         </h3>
 
                         {/* Video Container with Glow */}
                         <div className="relative">
-                            {/* Animated glow effect - Only around video */}
-                            <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-500 animate-pulse"></div>
-
                             {/* Video Container */}
                             <div className="relative rounded-2xl overflow-hidden border border-white/20 bg-black/40 backdrop-blur-sm shadow-2xl">
                                 {/* Video Element */}

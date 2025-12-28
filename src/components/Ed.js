@@ -52,12 +52,7 @@ export default function Education() {
                     data-aos="fade-up"
                 >
                     <div className="flex items-center gap-4">
-                        <h2
-                            className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent transition-all duration-75 ease-out"
-                            style={{
-                                backgroundImage: `radial-gradient(circle at ${mousePos.x}% ${mousePos.y}%, #6366f1, #d946ef, #0ea5e9)`
-                            }}
-                        >
+                        <h2 className="text-4xl md:text-5xl font-bold text-white">
                             Education
                         </h2>
                         <div className="hidden md:block h-1 w-24 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 rounded-full" />

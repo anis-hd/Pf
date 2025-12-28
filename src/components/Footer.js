@@ -51,12 +51,7 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-10">
             {/* Logo/Name */}
             <div className="text-center md:text-left">
-              <h3
-                className="text-3xl font-bold bg-clip-text text-transparent"
-                style={{
-                  backgroundImage: `radial-gradient(circle at ${mousePos.x}% ${mousePos.y}%, #6366f1, #d946ef, #0ea5e9)`
-                }}
-              >
+              <h3 className="text-3xl font-bold text-white">
                 Anis Ben Houidi
               </h3>
               <p className="text-gray-500 mt-2 text-sm">

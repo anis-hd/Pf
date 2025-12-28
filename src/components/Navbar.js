@@ -41,10 +41,7 @@ export default function Navbar() {
                     {/* Logo */}
                     <a
                         href="#home"
-                        className="font-bold text-2xl bg-clip-text text-transparent transition-all duration-75 ease-out hover:scale-105"
-                        style={{
-                            backgroundImage: `radial-gradient(circle at ${mousePos.x}% ${mousePos.y}%, #6366f1, #d946ef, #0ea5e9)`
-                        }}
+                        className="font-bold text-2xl text-white hover:scale-105 transition-all duration-300"
                     >
                         Anis.
                     </a>

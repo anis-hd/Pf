@@ -57,7 +57,7 @@ export default function SkillCard({ img, name, mousePosition }) {
             {/* Skill name tooltip */}
             {name && (
                 <div className={`absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-black/80 backdrop-blur-sm rounded text-xs font-medium whitespace-nowrap transition-all duration-300 ${isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
-                    <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    <span className="text-white">
                         {name}
                     </span>
                 </div>

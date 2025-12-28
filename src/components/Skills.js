@@ -86,12 +86,7 @@ export default function Skills() {
                     data-aos="fade-up"
                 >
                     <div className="flex items-center gap-4">
-                        <h2
-                            className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent transition-all duration-75 ease-out"
-                            style={{
-                                backgroundImage: `radial-gradient(circle at ${mousePos.x}% ${mousePos.y}%, #6366f1, #d946ef, #0ea5e9)`
-                            }}
-                        >
+                        <h2 className="text-4xl md:text-5xl font-bold text-white">
                             Skills
                         </h2>
                         <div className="hidden md:block h-1 w-24 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 rounded-full" />
@@ -131,25 +126,25 @@ export default function Skills() {
                     {/* Categories Summary */}
                     <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4" data-aos="fade-up" data-aos-delay="300">
                         <div className="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-purple-500/30 transition-all duration-300 group">
-                            <div className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                            <div className="text-2xl font-bold text-white">
                                 AI/ML
                             </div>
                             <p className="text-gray-500 text-sm mt-1">PyTorch, TensorFlow, Scikit-learn</p>
                         </div>
                         <div className="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-pink-500/30 transition-all duration-300 group">
-                            <div className="text-2xl font-bold bg-gradient-to-r from-pink-400 to-orange-400 bg-clip-text text-transparent">
+                            <div className="text-2xl font-bold text-white">
                                 Frontend
                             </div>
                             <p className="text-gray-500 text-sm mt-1">React, JavaScript, Tailwind</p>
                         </div>
                         <div className="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-blue-500/30 transition-all duration-300 group">
-                            <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                            <div className="text-2xl font-bold text-white">
                                 Backend
                             </div>
                             <p className="text-gray-500 text-sm mt-1">Django, Flask, Node.js</p>
                         </div>
                         <div className="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-green-500/30 transition-all duration-300 group">
-                            <div className="text-2xl font-bold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
+                            <div className="text-2xl font-bold text-white">
                                 DevOps
                             </div>
                             <p className="text-gray-500 text-sm mt-1">Linux, Bash, Git</p>
