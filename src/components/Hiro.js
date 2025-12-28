@@ -100,17 +100,33 @@ export default function Hiro() {
                         </p>
                     </div>
 
-                    <div className="flex items-center gap-6 mt-8">
-                        <a href='https://www.linkedin.com/in/anis-ben-houidi/' className='inline-flex items-center gap-2 bg-primary hover:bg-secondary px-8 py-3 transition-all duration-300 font-medium shadow-lg hover:shadow-primary/50'>
-                            Lets connect! <FontAwesomeIcon icon={faCircleArrowRight} />
+                    <div className="flex items-center gap-4 mt-8">
+                        <a
+                            href='https://www.linkedin.com/in/anis-ben-houidi/'
+                            target="_blank"
+                            rel="noreferrer"
+                            className='inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-medium shadow-lg hover:shadow-purple-500/30 hover:scale-105 transition-all duration-300'
+                        >
+                            Let's connect!
+                            <FontAwesomeIcon icon={faCircleArrowRight} className="group-hover:translate-x-1 transition-transform" />
                         </a>
 
-                        <div className='flex gap-4 items-center'>
-                            <a href='https://github.com/anis-hd' rel="noreferrer" target="_blank" className="text-gray-400 hover:text-white hover:scale-110 transition-all duration-300">
-                                <FontAwesomeIcon size='2xl' icon={faGithub} />
+                        <div className='flex gap-3 items-center'>
+                            <a
+                                href='https://github.com/anis-hd'
+                                rel="noreferrer"
+                                target="_blank"
+                                className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-purple-500/50 hover:bg-white/10 transition-all duration-300 group"
+                            >
+                                <FontAwesomeIcon icon={faGithub} className="text-xl group-hover:scale-110 transition-transform" />
                             </a>
-                            <a href='https://www.linkedin.com/in/anis-ben-houidi/' rel="noreferrer" target="_blank" className="text-gray-400 hover:text-white hover:scale-110 transition-all duration-300">
-                                <FontAwesomeIcon size='2xl' icon={faLinkedinIn} />
+                            <a
+                                href='https://www.linkedin.com/in/anis-ben-houidi/'
+                                rel="noreferrer"
+                                target="_blank"
+                                className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-purple-500/50 hover:bg-white/10 transition-all duration-300 group"
+                            >
+                                <FontAwesomeIcon icon={faLinkedinIn} className="text-xl group-hover:scale-110 transition-transform" />
                             </a>
                         </div>
                     </div>

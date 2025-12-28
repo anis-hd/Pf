@@ -45,20 +45,20 @@ export default function HyperRaftPage() {
     );
 
     const ImageWithCaption = ({ src, alt, caption }) => (
-        <div className="my-6" data-aos="fade-up">
-            <div className="relative rounded-xl overflow-hidden border border-white/10 bg-black/20">
-                <img src={src} alt={alt} className="w-full h-auto" loading="lazy" />
+        <div className="my-6 flex flex-col items-center" data-aos="fade-up">
+            <div className="relative rounded-xl overflow-hidden border border-white/10 bg-black/20 max-w-3xl w-full">
+                <img src={src} alt={alt} className="w-full h-auto max-h-[500px] object-contain" loading="lazy" />
             </div>
             {caption && <p className="text-center text-gray-500 text-sm mt-2 italic">{caption}</p>}
         </div>
     );
 
     const ImageGrid = ({ images }) => (
-        <div className="grid md:grid-cols-2 gap-6 my-6" data-aos="fade-up">
+        <div className="grid md:grid-cols-2 gap-6 my-6 max-w-4xl mx-auto" data-aos="fade-up">
             {images.map((img, idx) => (
                 <div key={idx} className="text-center">
                     <div className="rounded-xl overflow-hidden border border-white/10 bg-black/20">
-                        <img src={img.src} alt={img.alt} className="w-full h-auto" loading="lazy" />
+                        <img src={img.src} alt={img.alt} className="w-full h-auto max-h-[300px] object-contain" loading="lazy" />
                     </div>
                     <p className="text-gray-400 text-sm mt-2">{img.caption}</p>
                 </div>
