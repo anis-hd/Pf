@@ -86,7 +86,15 @@ export default function Hiro() {
                         >
                             Anis Ben Houidi
                         </h1>
-                        <p className="text-xl md:text-2xl font-semibold text-gray-300 mb-6">A <span className="text-primary"><Typewriter text="Computer Science Engineering Student " delay={120} infinite /></span></p>
+                        <p className="text-xl md:text-2xl font-semibold text-gray-300 mb-6">
+                            <span className="text-primary">
+                                <Typewriter
+                                    texts={["Computer Science Engineer", "AI Engineer", "Data Science Enthusiast"]}
+                                    delay={80}
+                                    infinite
+                                />
+                            </span>
+                        </p>
                         <p className="text-lg font-light text-gray-400 leading-relaxed max-w-xl">
                             A computer science engineering graduate with a passion for solving complex challenges through out-of-the-box thinking and strong analytical skills. Interested in emerging technologies, especially Artificial Intelligence and Machine Learning.
                         </p>
