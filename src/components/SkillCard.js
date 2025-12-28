@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 
-export default function SkillCard({ img, mousePosition }) {
+export default function SkillCard({ img, name, mousePosition }) {
     const cardRef = useRef(null);
     const [style, setStyle] = useState({});
+    const [isHovered, setIsHovered] = useState(false);
 
     useEffect(() => {
         if (!cardRef.current || mousePosition.x === null) return;
@@ -19,22 +20,17 @@ export default function SkillCard({ img, mousePosition }) {
         const maxDistance = 300;
 
         if (distance < maxDistance) {
-            const scale = 1 + 0.2 * (1 - distance / maxDistance);
+            const scale = 1 + 0.15 * (1 - distance / maxDistance);
             const glowOpacity = 1 - (distance / maxDistance);
             const zIndex = 10;
 
-            // --- NEW: Calculate Angle ---
-            // Get mouse position relative to the center of the card
+            // Calculate Angle for conic gradient
             const x = mousePosition.x - centerX;
             const y = mousePosition.y - centerY;
-            // Calculate the angle using atan2 and convert to degrees
             const angle = Math.atan2(y, x) * (180 / Math.PI);
-            // --- END NEW ---
 
             setStyle({
-                // --- NEW: Pass angle to CSS ---
                 '--glow-angle': `${angle}deg`,
-                // --- END NEW ---
                 '--glow-opacity': glowOpacity,
                 transform: `scale(${scale})`,
                 zIndex: zIndex
@@ -49,8 +45,23 @@ export default function SkillCard({ img, mousePosition }) {
     }, [mousePosition]);
 
     return (
-        <div className="skill-card-container" ref={cardRef} style={style}>
-            <img src={img} className="skill-logo" alt="skill logo" />
+        <div
+            className="skill-card-container group"
+            ref={cardRef}
+            style={style}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+        >
+            <img src={img} className="skill-logo" alt={name || "skill logo"} />
+
+            {/* Skill name tooltip */}
+            {name && (
+                <div className={`absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-black/80 backdrop-blur-sm rounded text-xs font-medium whitespace-nowrap transition-all duration-300 ${isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
+                    <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                        {name}
+                    </span>
+                </div>
+            )}
         </div>
     );
 }

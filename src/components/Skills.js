@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import SkillCard from "./SkillCard.js";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 // Import your skill logos
 import javascript from "../assets/skills/javascript.svg";
@@ -23,18 +25,38 @@ import flutter from "../assets/skills/flutter.svg";
 
 
 export default function Skills() {
-    // An array of skill images
+    // An array of skill images with names for better accessibility
     const skills = [
-        django, flask, linux, bash, python, javascript, reactIcon, tailwind,
-        git, tensorflow, pytorch, scikitlearn, nodejsicon, mongodb, java,
-        cee, cpp, flutter
+        { img: python, name: "Python" },
+        { img: pytorch, name: "PyTorch" },
+        { img: tensorflow, name: "TensorFlow" },
+        { img: scikitlearn, name: "Scikit-learn" },
+        { img: javascript, name: "JavaScript" },
+        { img: reactIcon, name: "React" },
+        { img: nodejsicon, name: "Node.js" },
+        { img: django, name: "Django" },
+        { img: flask, name: "Flask" },
+        { img: mongodb, name: "MongoDB" },
+        { img: tailwind, name: "Tailwind" },
+        { img: git, name: "Git" },
+        { img: linux, name: "Linux" },
+        { img: bash, name: "Bash" },
+        { img: java, name: "Java" },
+        { img: cee, name: "C" },
+        { img: cpp, name: "C++" },
+        { img: flutter, name: "Flutter" }
     ];
 
     const [mousePosition, setMousePosition] = useState({ x: null, y: null });
+    const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
 
     useEffect(() => {
         const handleMouseMove = (event) => {
             setMousePosition({ x: event.clientX, y: event.clientY });
+            // For gradient effect
+            const x = (event.clientX / window.innerWidth) * 100;
+            const y = (event.clientY / window.innerHeight) * 100;
+            setMousePos({ x, y });
         };
 
         window.addEventListener('mousemove', handleMouseMove);
@@ -47,32 +69,94 @@ export default function Skills() {
     const [isCollapsed, setIsCollapsed] = useState(false);
 
     return (
-        <div id="skills" className="mt-12 text-white transition-all duration-300">
+        <section id="skills" className="py-20 text-white relative">
+            {/* Background Gradient Orb */}
             <div
-                className="flex items-center justify-between cursor-pointer group"
-                onClick={() => setIsCollapsed(!isCollapsed)}
-            >
-                <h1 className="text-4xl font-bold mb-6 border-b-4 border-primary w-fit pb-2">Skills</h1>
-                <div className={`transform transition-transform duration-300 ${isCollapsed ? '-rotate-90' : 'rotate-0'}`}>
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-gray-400 group-hover:text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
+                className="absolute inset-0 pointer-events-none overflow-hidden"
+                style={{
+                    background: `radial-gradient(circle at ${mousePos.x}% ${mousePos.y}%, rgba(99, 102, 241, 0.08) 0%, transparent 50%)`
+                }}
+            />
+
+            <div className="relative z-10">
+                {/* Section Header */}
+                <div
+                    className="flex items-center justify-between cursor-pointer group mb-8"
+                    onClick={() => setIsCollapsed(!isCollapsed)}
+                    data-aos="fade-up"
+                >
+                    <div className="flex items-center gap-4">
+                        <h2
+                            className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent transition-all duration-75 ease-out"
+                            style={{
+                                backgroundImage: `radial-gradient(circle at ${mousePos.x}% ${mousePos.y}%, #6366f1, #d946ef, #0ea5e9)`
+                            }}
+                        >
+                            Skills
+                        </h2>
+                        <div className="hidden md:block h-1 w-24 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 rounded-full" />
+                    </div>
+                    <div className={`w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-white/10 group-hover:border-purple-500/50 transition-all duration-300 ${isCollapsed ? '-rotate-90' : 'rotate-0'}`}>
+                        <FontAwesomeIcon
+                            icon={faChevronDown}
+                            className="text-gray-400 group-hover:text-purple-400 transition-colors"
+                        />
+                    </div>
                 </div>
-            </div>
 
-            <div className={`overflow-hidden transition-all duration-500 ease-in-out ${isCollapsed ? 'max-h-0 opacity-0' : 'max-h-[1000px] opacity-100'}`}>
-                <p className="font-light text-gray-400">Hover over the skills to see the effect</p>
+                {/* Collapsible Content */}
+                <div className={`overflow-hidden transition-all duration-500 ease-in-out ${isCollapsed ? 'max-h-0 opacity-0' : 'max-h-[2000px] opacity-100'}`}>
+                    {/* Subtitle */}
+                    <p className="text-gray-400 text-lg mb-2" data-aos="fade-up" data-aos-delay="100">
+                        Technologies I work with
+                    </p>
+                    <p className="text-gray-500 text-sm mb-10" data-aos="fade-up" data-aos-delay="150">
+                        ✨ Hover over the skills to see the interactive effect
+                    </p>
 
-                {/* Centering wrapper */}
-                <div className="mt-8 flex justify-center">
-                    {/* Use inline-grid to make the container only as wide as its content */}
-                    <div className="inline-grid grid-cols-4 md:grid-cols-6 lg:grid-cols-9 gap-[10px]">
-                        {skills.map((skillImg, index) => (
-                            <SkillCard key={index} img={skillImg} mousePosition={mousePosition} />
-                        ))}
+                    {/* Skills Grid */}
+                    <div className="flex justify-center" data-aos="fade-up" data-aos-delay="200">
+                        <div className="inline-grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-9 gap-4">
+                            {skills.map((skill, index) => (
+                                <SkillCard
+                                    key={index}
+                                    img={skill.img}
+                                    name={skill.name}
+                                    mousePosition={mousePosition}
+                                />
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Categories Summary */}
+                    <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4" data-aos="fade-up" data-aos-delay="300">
+                        <div className="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-purple-500/30 transition-all duration-300 group">
+                            <div className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                                AI/ML
+                            </div>
+                            <p className="text-gray-500 text-sm mt-1">PyTorch, TensorFlow, Scikit-learn</p>
+                        </div>
+                        <div className="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-pink-500/30 transition-all duration-300 group">
+                            <div className="text-2xl font-bold bg-gradient-to-r from-pink-400 to-orange-400 bg-clip-text text-transparent">
+                                Frontend
+                            </div>
+                            <p className="text-gray-500 text-sm mt-1">React, JavaScript, Tailwind</p>
+                        </div>
+                        <div className="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-blue-500/30 transition-all duration-300 group">
+                            <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                                Backend
+                            </div>
+                            <p className="text-gray-500 text-sm mt-1">Django, Flask, Node.js</p>
+                        </div>
+                        <div className="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-green-500/30 transition-all duration-300 group">
+                            <div className="text-2xl font-bold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
+                                DevOps
+                            </div>
+                            <p className="text-gray-500 text-sm mt-1">Linux, Bash, Git</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 }

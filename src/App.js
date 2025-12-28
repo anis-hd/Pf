@@ -1,5 +1,6 @@
 import './App.css';
 import { useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hiro from './components/Hiro';
 import Skills from './components/Skills'
@@ -9,13 +10,10 @@ import Footer from './components/Footer';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Experience from './components/Experience';
+import HyperRaftPage from './components/HyperRaftPage';
 
-
-function App() {
-  useEffect(() => {
-    document.title = 'Anis Houidi';
-    AOS.init();
-  }, []);
+// Home page component
+function HomePage() {
   return (
     <div className="px-6 lg:px-20 xl:px-36 bg-gradient-to-b from-dark-500 to-dark-600 min-h-screen">
       <Navbar />
@@ -26,6 +24,22 @@ function App() {
       <Projects />
       <Footer />
     </div>
+  );
+}
+
+function App() {
+  useEffect(() => {
+    document.title = 'Anis Houidi';
+    AOS.init();
+  }, []);
+
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/hyperraft" element={<HyperRaftPage />} />
+      </Routes>
+    </Router>
   );
 }
 
