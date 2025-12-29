@@ -21,6 +21,9 @@ import psnrResolution from '../assets/img/psnr_by_resolution.png';
 import msssimResolution from '../assets/img/msssim_by_resolution.png';
 import temporalFiltering from '../assets/img/first order IIR temporal filtering.png';
 import realVsReconstructed from '../assets/img/realvsreconstructed.png';
+import phase1Metrics from '../assets/img/phase_1_metrics.png';
+import phase2Metrics from '../assets/img/phase_2_metrics.png';
+import phase3Vis from '../assets/img/epoch_0115_phase3_vis.png';
 
 export default function HyperRaftPage() {
     const [expandedSections, setExpandedSections] = useState({});
@@ -44,21 +47,21 @@ export default function HyperRaftPage() {
         </pre>
     );
 
-    const ImageWithCaption = ({ src, alt, caption }) => (
+    const ImageWithCaption = ({ src, alt, caption, maxWidth = "max-w-3xl", maxHeight = "max-h-[500px]" }) => (
         <div className="my-6 flex flex-col items-center" data-aos="fade-up">
-            <div className="relative rounded-xl overflow-hidden border border-white/10 bg-black/20 max-w-3xl w-full">
-                <img src={src} alt={alt} className="w-full h-auto max-h-[500px] object-contain" loading="lazy" />
+            <div className={`relative rounded-xl overflow-hidden border border-white/10 bg-black/20 ${maxWidth} w-full`}>
+                <img src={src} alt={alt} className={`w-full h-auto ${maxHeight} object-contain`} loading="lazy" />
             </div>
             {caption && <p className="text-center text-gray-500 text-sm mt-2 italic">{caption}</p>}
         </div>
     );
 
-    const ImageGrid = ({ images }) => (
-        <div className="grid md:grid-cols-2 gap-6 my-6 max-w-4xl mx-auto" data-aos="fade-up">
+    const ImageGrid = ({ images, maxWidth = "max-w-4xl", maxHeight = "max-h-[300px]" }) => (
+        <div className={`grid md:grid-cols-2 gap-6 my-6 ${maxWidth} mx-auto`} data-aos="fade-up">
             {images.map((img, idx) => (
                 <div key={idx} className="text-center">
                     <div className="rounded-xl overflow-hidden border border-white/10 bg-black/20">
-                        <img src={img.src} alt={img.alt} className="w-full h-auto max-h-[300px] object-contain" loading="lazy" />
+                        <img src={img.src} alt={img.alt} className={`w-full h-auto ${maxHeight} object-contain`} loading="lazy" />
                     </div>
                     <p className="text-gray-400 text-sm mt-2">{img.caption}</p>
                 </div>
@@ -361,6 +364,35 @@ export default function HyperRaftPage() {
                                 <div className="text-4xl font-bold text-blue-400 mb-2">3</div>
                                 <h4 className="font-semibold mb-2">Phase 3: Perceptual Tuning</h4>
                                 <p className="text-gray-400 text-sm">Fine-tuning with MS-SSIM and Bitrate constraints.</p>
+                            </div>
+                        </div>
+
+                        {/* Phase Metrics & Visualizations */}
+                        <div className="mt-12 space-y-12">
+                            <div data-aos="fade-up">
+                                <h4 className="text-xl font-medium mb-6 text-gray-300">Phase 1 & 2: Training Metrics</h4>
+                                <ImageGrid
+                                    images={[
+                                        { src: phase1Metrics, alt: "Phase 1 Training Metrics", caption: "Phase 1: Loss & Accuracy" },
+                                        { src: phase2Metrics, alt: "Phase 2 Training Metrics", caption: "Phase 2: Optimization Progress" }
+                                    ]}
+                                    maxWidth="max-w-6xl"
+                                    maxHeight="max-h-[500px]"
+                                />
+                            </div>
+
+                            <div data-aos="fade-up">
+                                <h4 className="text-xl font-medium mb-6 text-gray-300">Phase 3: Reconstruction Visualization</h4>
+                                <p className="text-gray-400 mb-6 italic">
+                                    Top: Original frame snippets. Bottom: Reconstructed counterparts after phase 3 fine-tuning.
+                                </p>
+                                <ImageWithCaption
+                                    src={phase3Vis}
+                                    alt="Phase 3 Visualization"
+                                    caption="ResAE Visualization: Comparing original vs decoded frame blocks during Phase 3"
+                                    maxWidth="max-w-6xl"
+                                    maxHeight="max-h-[800px]"
+                                />
                             </div>
                         </div>
                     </div>
