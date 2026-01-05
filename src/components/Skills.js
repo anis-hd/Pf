@@ -23,6 +23,19 @@ import cee from "../assets/skills/c.png";
 import cpp from "../assets/skills/cpp.png";
 import flutter from "../assets/skills/flutter.svg";
 
+import docker from "../assets/skills/docker.svg";
+import express from "../assets/skills/express.svg";
+import fastapi from "../assets/skills/fastapi.png";
+import gitlab from "../assets/skills/gitlab.svg";
+import html from "../assets/skills/html.svg";
+import huggingface from "../assets/skills/huggingface.png";
+
+import langchain from "../assets/skills/langchain.png";
+
+import ollama from "../assets/skills/ollama.webp";
+import unsloth from "../assets/skills/unsloth-logo.webp";
+
+
 
 export default function Skills() {
     // An array of skill images with names for better accessibility
@@ -30,21 +43,32 @@ export default function Skills() {
         { img: python, name: "Python" },
         { img: pytorch, name: "PyTorch" },
         { img: tensorflow, name: "TensorFlow" },
+        { img: huggingface, name: "Hugging Face" },
+        { img: langchain, name: "LangChain" },
+        { img: ollama, name: "Ollama" },
+        { img: unsloth, name: "Unsloth" },
         { img: scikitlearn, name: "Scikit-learn" },
         { img: javascript, name: "JavaScript" },
         { img: reactIcon, name: "React" },
+        { img: html, name: "HTML" },
+        { img: flutter, name: "Flutter" },
         { img: nodejsicon, name: "Node.js" },
+        { img: express, name: "Express" },
         { img: django, name: "Django" },
         { img: flask, name: "Flask" },
+        { img: fastapi, name: "FastAPI" },
         { img: mongodb, name: "MongoDB" },
         { img: tailwind, name: "Tailwind" },
         { img: git, name: "Git" },
+        { img: gitlab, name: "GitLab" },
+        { img: docker, name: "Docker" },
+
         { img: linux, name: "Linux" },
         { img: bash, name: "Bash" },
+
         { img: java, name: "Java" },
         { img: cee, name: "C" },
-        { img: cpp, name: "C++" },
-        { img: flutter, name: "Flutter" }
+        { img: cpp, name: "C++" }
     ];
 
     const [mousePosition, setMousePosition] = useState({ x: null, y: null });
@@ -127,25 +151,25 @@ export default function Skills() {
                             <div className="text-2xl font-bold text-white">
                                 AI/ML
                             </div>
-                            <p className="text-gray-500 text-sm mt-1">PyTorch, TensorFlow, Scikit-learn</p>
+                            <p className="text-gray-500 text-sm mt-1">PyTorch, TensorFlow, Hugging Face, LangChain</p>
                         </div>
                         <div className="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-pink-500/30 transition-all duration-300 group">
                             <div className="text-2xl font-bold text-white">
                                 Frontend
                             </div>
-                            <p className="text-gray-500 text-sm mt-1">React, JavaScript, Tailwind</p>
+                            <p className="text-gray-500 text-sm mt-1">React, Flutter, Tailwind, HTML</p>
                         </div>
                         <div className="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-blue-500/30 transition-all duration-300 group">
                             <div className="text-2xl font-bold text-white">
                                 Backend
                             </div>
-                            <p className="text-gray-500 text-sm mt-1">Django, Flask, Node.js</p>
+                            <p className="text-gray-500 text-sm mt-1">Django, FastAPI, Node.js, Express</p>
                         </div>
                         <div className="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-green-500/30 transition-all duration-300 group">
                             <div className="text-2xl font-bold text-white">
                                 DevOps
                             </div>
-                            <p className="text-gray-500 text-sm mt-1">Linux, Bash, Git</p>
+                            <p className="text-gray-500 text-sm mt-1">Docker, Git, GitLab, Linux</p>
                         </div>
                     </div>
                 </div>

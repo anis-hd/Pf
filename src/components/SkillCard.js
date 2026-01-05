@@ -46,17 +46,21 @@ export default function SkillCard({ img, name, mousePosition }) {
 
     return (
         <div
-            className="skill-card-container group"
+            className="skill-card-container group hover:!z-50"
             ref={cardRef}
             style={style}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
-            <img src={img} className="skill-logo" alt={name || "skill logo"} />
+            <img
+                src={img}
+                className="skill-logo bg-white rounded-full p-2"
+                alt={name || "skill logo"}
+            />
 
             {/* Skill name tooltip */}
             {name && (
-                <div className={`absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-black/80 backdrop-blur-sm rounded text-xs font-medium whitespace-nowrap transition-all duration-300 ${isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
+                <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-black/80 backdrop-blur-sm rounded text-xs font-medium whitespace-nowrap opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 z-50 pointer-events-none">
                     <span className="text-white">
                         {name}
                     </span>
