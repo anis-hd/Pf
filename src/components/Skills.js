@@ -105,9 +105,7 @@ export default function Skills() {
                     <p className="text-gray-400 text-lg mb-2" data-aos="fade-up" data-aos-delay="100">
                         Technologies I work with
                     </p>
-                    <p className="text-gray-500 text-sm mb-10" data-aos="fade-up" data-aos-delay="150">
-                        ✨ Hover over the skills to see the interactive effect
-                    </p>
+
 
                     {/* Skills Grid */}
                     <div className="flex justify-center" data-aos="fade-up" data-aos-delay="200">
