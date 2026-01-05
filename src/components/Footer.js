@@ -23,7 +23,7 @@ export default function Footer() {
 
   const navLinks = [
     { name: 'About', href: '#home' },
-    { name: 'Skills', href: '#skills' },
+    { name: 'Tech Stack', href: '#skills' },
     { name: 'Education', href: '#honors' },
     { name: 'Experience', href: '#experience' },
     { name: 'Projects', href: '#certs' }

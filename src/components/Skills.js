@@ -87,7 +87,7 @@ export default function Skills() {
                 >
                     <div className="flex items-center gap-4">
                         <h2 className="text-4xl md:text-5xl font-bold text-white">
-                            Skills
+                            Tech Stack
                         </h2>
                         <div className="hidden md:block h-1 w-24 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 rounded-full" />
                     </div>
