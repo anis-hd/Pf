@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faRocket, faCube, faCode, faVideo, faBrain, faLayerGroup, faChartLine, faGears, faTerminal, faChevronDown, faChevronUp, faGraduationCap, faBuilding } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faRocket, faCube, faCode, faVideo, faBrain, faLayerGroup, faChartLine, faGears, faTerminal, faGraduationCap, faBuilding } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import AOS from 'aos';
+
 import hyperraftVideo from '../assets/hyperraft.mp4';
 
 // Import all images
@@ -26,20 +26,11 @@ import phase2Metrics from '../assets/img/phase_2_metrics.png';
 import phase3Vis from '../assets/img/epoch_0115_phase3_vis.png';
 
 export default function HyperRaftPage() {
-    const [expandedSections, setExpandedSections] = useState({});
-
     useEffect(() => {
         document.title = 'RDVC: Raft Deep Video Compression - Anis Houidi';
-        AOS.init({ duration: 800 });
         window.scrollTo(0, 0);
     }, []);
 
-    const toggleSection = (section) => {
-        setExpandedSections(prev => ({
-            ...prev,
-            [section]: !prev[section]
-        }));
-    };
 
     const CodeBlock = ({ children }) => (
         <pre className="bg-black/60 border border-white/10 rounded-lg p-4 overflow-x-auto text-sm font-mono text-green-400">
@@ -48,7 +39,7 @@ export default function HyperRaftPage() {
     );
 
     const ImageWithCaption = ({ src, alt, caption, maxWidth = "max-w-3xl", maxHeight = "max-h-[500px]" }) => (
-        <div className="my-6 flex flex-col items-center" data-aos="fade-up">
+        <div className="my-6 flex flex-col items-center">
             <div className={`relative rounded-xl overflow-hidden border border-white/10 bg-black/20 ${maxWidth} w-full`}>
                 <img src={src} alt={alt} className={`w-full h-auto ${maxHeight} object-contain`} loading="lazy" />
             </div>
@@ -57,7 +48,7 @@ export default function HyperRaftPage() {
     );
 
     const ImageGrid = ({ images, maxWidth = "max-w-4xl", maxHeight = "max-h-[300px]" }) => (
-        <div className={`grid md:grid-cols-2 gap-6 my-6 ${maxWidth} mx-auto`} data-aos="fade-up">
+        <div className={`grid md:grid-cols-2 gap-6 my-6 ${maxWidth} mx-auto`}>
             {images.map((img, idx) => (
                 <div key={idx} className="text-center">
                     <div className="rounded-xl overflow-hidden border border-white/10 bg-black/20">
@@ -72,7 +63,7 @@ export default function HyperRaftPage() {
     const FeatureCard = ({ icon, title, description, gradient }) => (
         <div
             className="p-6 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-all duration-300 group"
-            data-aos="fade-up"
+
         >
             <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
                 <FontAwesomeIcon icon={icon} className="text-2xl" />
@@ -82,22 +73,15 @@ export default function HyperRaftPage() {
         </div>
     );
 
-    const CollapsibleSection = ({ id, title, children, defaultOpen = false }) => {
-        const isOpen = expandedSections[id] ?? defaultOpen;
+    const CollapsibleSection = ({ title, children }) => {
         return (
             <div className="border border-white/10 rounded-xl overflow-hidden mb-4">
-                <button
-                    onClick={() => toggleSection(id)}
-                    className="w-full px-6 py-4 bg-white/5 hover:bg-white/10 transition-colors flex items-center justify-between text-left"
-                >
+                <div className="w-full px-6 py-4 bg-white/5 flex items-center justify-between text-left">
                     <span className="font-semibold text-lg">{title}</span>
-                    <FontAwesomeIcon icon={isOpen ? faChevronUp : faChevronDown} className="text-gray-400" />
-                </button>
-                {isOpen && (
-                    <div className="p-6 bg-black/20">
-                        {children}
-                    </div>
-                )}
+                </div>
+                <div className="p-6 bg-black/20">
+                    {children}
+                </div>
             </div>
         );
     };
@@ -132,7 +116,7 @@ export default function HyperRaftPage() {
             <section className="px-6 lg:px-20 xl:px-36 pt-32 pb-16">
                 <div className="max-w-7xl mx-auto">
                     {/* Project Badge */}
-                    <div className="flex flex-wrap gap-3 mb-6" data-aos="fade-up">
+                    <div className="flex flex-wrap gap-3 mb-6">
                         <span className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-600/20 to-pink-600/20 border border-purple-500/30 rounded-full text-sm font-medium">
                             <FontAwesomeIcon icon={faRocket} className="text-purple-400" />
                             Final Year Project
@@ -150,15 +134,15 @@ export default function HyperRaftPage() {
                     {/* Title */}
                     <h1
                         className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 bg-gradient-to-r from-purple-400 via-pink-500 to-blue-400 bg-clip-text text-transparent"
-                        data-aos="fade-up"
-                        data-aos-delay="100"
+
+
                     >
                         RDVC
                     </h1>
                     <h2
                         className="text-2xl md:text-3xl font-semibold text-gray-300 mb-6"
-                        data-aos="fade-up"
-                        data-aos-delay="150"
+
+
                     >
                         Raft Deep Video Compression
                     </h2>
@@ -166,8 +150,8 @@ export default function HyperRaftPage() {
                     {/* Subtitle */}
                     <p
                         className="text-lg md:text-xl text-gray-400 max-w-4xl mb-8 leading-relaxed"
-                        data-aos="fade-up"
-                        data-aos-delay="200"
+
+
                     >
                         A Hybrid Video Compression Framework combining <span className="text-purple-400 font-medium">RAFT Optical Flow</span>,
                         <span className="text-pink-400 font-medium"> Hyperprior Entropy Coding</span>, and
@@ -177,8 +161,8 @@ export default function HyperRaftPage() {
                     {/* Action Buttons */}
                     <div
                         className="flex flex-wrap gap-4"
-                        data-aos="fade-up"
-                        data-aos-delay="300"
+
+
                     >
                         <a
                             href="#demo"
@@ -210,11 +194,11 @@ export default function HyperRaftPage() {
             {/* Video Demo Section */}
             <section id="demo" className="px-6 lg:px-20 xl:px-36 py-16">
                 <div className="max-w-5xl mx-auto">
-                    <h2 className="text-3xl font-bold mb-8 text-center" data-aos="fade-up">Demo Video</h2>
-                    <p className="text-center text-gray-400 mb-8" data-aos="fade-up">
+                    <h2 className="text-3xl font-bold mb-8 text-center">Demo Video</h2>
+                    <p className="text-center text-gray-400 mb-8">
                         80% of the frames in this video are reconstructed during decoding
                     </p>
-                    <div className="relative" data-aos="zoom-in">
+                    <div className="relative">
                         <div className="absolute -inset-4 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-3xl blur-2xl opacity-30"></div>
                         <div className="relative rounded-2xl overflow-hidden border border-white/20 shadow-2xl">
                             <video className="w-full h-auto" controls autoPlay loop muted playsInline>
@@ -228,8 +212,8 @@ export default function HyperRaftPage() {
             {/* Context Section */}
             <section className="px-6 lg:px-20 xl:px-36 py-16">
                 <div className="max-w-5xl mx-auto">
-                    <h2 className="text-3xl font-bold mb-8" data-aos="fade-up">Context</h2>
-                    <div className="prose prose-invert max-w-none" data-aos="fade-up">
+                    <h2 className="text-3xl font-bold mb-8">Context</h2>
+                    <div className="prose prose-invert max-w-none">
                         <p className="text-gray-300 leading-relaxed text-lg">
                             This project implements <strong className="text-white">RDVC (Raft Deep Video Compression)</strong>, a Final Year Project developed at <strong className="text-green-400">Talan Tunisie</strong> in collaboration with the <strong className="text-blue-400">National School of Computer Science (ENSI)</strong>.
                         </p>
@@ -243,7 +227,7 @@ export default function HyperRaftPage() {
             {/* Key Features */}
             <section className="px-6 lg:px-20 xl:px-36 py-16">
                 <div className="max-w-7xl mx-auto">
-                    <h2 className="text-3xl font-bold mb-12 text-center" data-aos="fade-up">Key Features</h2>
+                    <h2 className="text-3xl font-bold mb-12 text-center">Key Features</h2>
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <FeatureCard
                             icon={faBrain}
@@ -288,15 +272,15 @@ export default function HyperRaftPage() {
             {/* System Architecture */}
             <section className="px-6 lg:px-20 xl:px-36 py-16 bg-black/20">
                 <div className="max-w-7xl mx-auto">
-                    <h2 className="text-3xl font-bold mb-4 text-center" data-aos="fade-up">System Architecture & Workflows</h2>
-                    <p className="text-gray-400 text-center mb-12" data-aos="fade-up">
+                    <h2 className="text-3xl font-bold mb-4 text-center">System Architecture & Workflows</h2>
+                    <p className="text-gray-400 text-center mb-12">
                         The RDVC codec operates on a P-frame architecture involving Motion and Residual branches.
                     </p>
 
                     <div className="space-y-8">
                         {/* Encoding/Decoding Block Diagrams */}
                         <div>
-                            <h3 className="text-2xl font-semibold mb-6" data-aos="fade-up">High-Level Schematics</h3>
+                            <h3 className="text-2xl font-semibold mb-6">High-Level Schematics</h3>
                             <ImageWithCaption
                                 src={rdvcEncoding}
                                 alt="RDVC Encoding Block Diagram"
@@ -311,8 +295,8 @@ export default function HyperRaftPage() {
 
                         {/* Workflow Diagrams */}
                         <div>
-                            <h3 className="text-2xl font-semibold mb-6" data-aos="fade-up">Encoding & Decoding Processes</h3>
-                            <p className="text-gray-400 mb-6" data-aos="fade-up">
+                            <h3 className="text-2xl font-semibold mb-6">Encoding & Decoding Processes</h3>
+                            <p className="text-gray-400 mb-6">
                                 The system uses a synchronized loop to ensure the encoder and decoder states remain identical.
                             </p>
                             <ImageGrid images={[
@@ -323,7 +307,7 @@ export default function HyperRaftPage() {
 
                         {/* Core Components */}
                         <div>
-                            <h3 className="text-2xl font-semibold mb-6" data-aos="fade-up">Core Components</h3>
+                            <h3 className="text-2xl font-semibold mb-6">Core Components</h3>
                             <ImageGrid images={[
                                 { src: raftArchitecture, alt: "RAFT Architecture", caption: "RAFT Optical Flow Architecture" },
                                 { src: hyperpriorGraph, alt: "Hyperprior Graph", caption: "Hyperprior Entropy Model" }
@@ -336,10 +320,10 @@ export default function HyperRaftPage() {
             {/* Training & Optimization */}
             <section className="px-6 lg:px-20 xl:px-36 py-16">
                 <div className="max-w-7xl mx-auto">
-                    <h2 className="text-3xl font-bold mb-12 text-center" data-aos="fade-up">Training & Optimization</h2>
+                    <h2 className="text-3xl font-bold mb-12 text-center">Training & Optimization</h2>
 
                     <div className="mb-12">
-                        <h3 className="text-2xl font-semibold mb-6" data-aos="fade-up">Training Dynamics</h3>
+                        <h3 className="text-2xl font-semibold mb-6">Training Dynamics</h3>
                         <ImageWithCaption
                             src={raftTraining}
                             alt="RAFT Training"
@@ -348,8 +332,8 @@ export default function HyperRaftPage() {
                     </div>
 
                     <div className="mb-12">
-                        <h3 className="text-2xl font-semibold mb-6" data-aos="fade-up">Multi-Phase Training Strategy</h3>
-                        <div className="grid md:grid-cols-3 gap-6" data-aos="fade-up">
+                        <h3 className="text-2xl font-semibold mb-6">Multi-Phase Training Strategy</h3>
+                        <div className="grid md:grid-cols-3 gap-6">
                             <div className="p-6 bg-white/5 border border-purple-500/30 rounded-2xl">
                                 <div className="text-4xl font-bold text-purple-400 mb-2">1</div>
                                 <h4 className="font-semibold mb-2">Phase 1: Initialization</h4>
@@ -369,7 +353,7 @@ export default function HyperRaftPage() {
 
                         {/* Phase Metrics & Visualizations */}
                         <div className="mt-12 space-y-12">
-                            <div data-aos="fade-up">
+                            <div>
                                 <h4 className="text-xl font-medium mb-6 text-gray-300">Phase 1 & 2: Training Metrics</h4>
                                 <ImageGrid
                                     images={[
@@ -381,7 +365,7 @@ export default function HyperRaftPage() {
                                 />
                             </div>
 
-                            <div data-aos="fade-up">
+                            <div>
                                 <h4 className="text-xl font-medium mb-6 text-gray-300">Phase 3: Reconstruction Visualization</h4>
                                 <p className="text-gray-400 mb-6 italic">
                                     Top: Original frame snippets. Bottom: Reconstructed counterparts after phase 3 fine-tuning.
@@ -402,15 +386,15 @@ export default function HyperRaftPage() {
             {/* Results & Evaluation */}
             <section className="px-6 lg:px-20 xl:px-36 py-16 bg-black/20">
                 <div className="max-w-7xl mx-auto">
-                    <h2 className="text-3xl font-bold mb-4 text-center" data-aos="fade-up">Results & Evaluation</h2>
-                    <p className="text-gray-400 text-center mb-12" data-aos="fade-up">
+                    <h2 className="text-3xl font-bold mb-4 text-center">Results & Evaluation</h2>
+                    <p className="text-gray-400 text-center mb-12">
                         The system was evaluated on the <strong className="text-white">UVG Dataset</strong> (Beauty, Jockey, ReadySetGo).
                     </p>
 
                     {/* Qualitative Reconstruction */}
                     <div className="mb-12">
-                        <h3 className="text-2xl font-semibold mb-6" data-aos="fade-up">Qualitative Reconstruction</h3>
-                        <p className="text-gray-400 mb-6" data-aos="fade-up">
+                        <h3 className="text-2xl font-semibold mb-6">Qualitative Reconstruction</h3>
+                        <p className="text-gray-400 mb-6">
                             Comparison between the original frame and the reconstructed frame after compression/decompression.
                         </p>
                         <ImageWithCaption
@@ -422,7 +406,7 @@ export default function HyperRaftPage() {
 
                     {/* RAFT Prediction */}
                     <div className="mb-12">
-                        <h3 className="text-2xl font-semibold mb-6" data-aos="fade-up">RAFT Flow Prediction</h3>
+                        <h3 className="text-2xl font-semibold mb-6">RAFT Flow Prediction</h3>
                         <ImageWithCaption
                             src={raftPrediction}
                             alt="RAFT Prediction"
@@ -432,14 +416,14 @@ export default function HyperRaftPage() {
 
                     {/* Benchmarks */}
                     <div className="mb-12">
-                        <h3 className="text-2xl font-semibold mb-6" data-aos="fade-up">Benchmarks</h3>
-                        <h4 className="text-xl font-medium mb-4 text-gray-300" data-aos="fade-up">Rate-Distortion Curves</h4>
+                        <h3 className="text-2xl font-semibold mb-6">Benchmarks</h3>
+                        <h4 className="text-xl font-medium mb-4 text-gray-300">Rate-Distortion Curves</h4>
                         <ImageGrid images={[
                             { src: rdCurvePSNR, alt: "RD Curve PSNR", caption: "PSNR vs Bitrate" },
                             { src: rdCurveMSSSIM, alt: "RD Curve MS-SSIM", caption: "MS-SSIM vs Bitrate" }
                         ]} />
 
-                        <h4 className="text-xl font-medium mb-4 mt-8 text-gray-300" data-aos="fade-up">Resolution Analysis</h4>
+                        <h4 className="text-xl font-medium mb-4 mt-8 text-gray-300">Resolution Analysis</h4>
                         <ImageGrid images={[
                             { src: psnrResolution, alt: "PSNR by Resolution", caption: "PSNR by Resolution" },
                             { src: msssimResolution, alt: "MS-SSIM by Resolution", caption: "MS-SSIM by Resolution" }
@@ -448,7 +432,7 @@ export default function HyperRaftPage() {
 
                     {/* Post-Processing */}
                     <div>
-                        <h3 className="text-2xl font-semibold mb-6" data-aos="fade-up">Post-Processing</h3>
+                        <h3 className="text-2xl font-semibold mb-6">Post-Processing</h3>
                         <ImageWithCaption
                             src={temporalFiltering}
                             alt="Temporal Filtering"
@@ -461,10 +445,10 @@ export default function HyperRaftPage() {
             {/* Usage Section */}
             <section id="usage" className="px-6 lg:px-20 xl:px-36 py-16">
                 <div className="max-w-5xl mx-auto">
-                    <h2 className="text-3xl font-bold mb-8 text-center" data-aos="fade-up">Usage</h2>
+                    <h2 className="text-3xl font-bold mb-8 text-center">Usage</h2>
 
                     {/* Prerequisites */}
-                    <div className="mb-8" data-aos="fade-up">
+                    <div className="mb-8">
                         <h3 className="text-xl font-semibold mb-4">Prerequisites</h3>
                         <div className="flex flex-wrap gap-3">
                             {['Python 3.11', 'PyTorch (CUDA)', 'compressai', 'torchvision', 'numpy', 'opencv-python', 'pillow', 'tqdm'].map((dep, idx) => (
@@ -549,8 +533,8 @@ python codec_processing.py \\
             {/* Project Structure */}
             <section className="px-6 lg:px-20 xl:px-36 py-16 bg-black/20">
                 <div className="max-w-5xl mx-auto">
-                    <h2 className="text-3xl font-bold mb-8 text-center" data-aos="fade-up">Project Structure</h2>
-                    <div className="bg-black/40 border border-white/10 rounded-xl p-6 font-mono text-sm" data-aos="fade-up">
+                    <h2 className="text-3xl font-bold mb-8 text-center">Project Structure</h2>
+                    <div className="bg-black/40 border border-white/10 rounded-xl p-6 font-mono text-sm">
                         <div className="space-y-2 text-gray-300">
                             <p><span className="text-purple-400">📄 codec_processing.py</span> — Core VideoCodec class with Encoders, Decoders, Warping layers</p>
                             <p><span className="text-purple-400">📄 new_train.py</span> — Main training script with 3-phase training loop</p>
@@ -566,8 +550,8 @@ python codec_processing.py \\
             {/* Technologies */}
             <section className="px-6 lg:px-20 xl:px-36 py-16">
                 <div className="max-w-4xl mx-auto">
-                    <h2 className="text-3xl font-bold mb-12 text-center" data-aos="fade-up">Technologies Used</h2>
-                    <div className="flex flex-wrap justify-center gap-4" data-aos="fade-up">
+                    <h2 className="text-3xl font-bold mb-12 text-center">Technologies Used</h2>
+                    <div className="flex flex-wrap justify-center gap-4">
                         {['PyTorch', 'RAFT', 'CompressAI', 'Hyperprior AE', 'CUDA', 'Python', 'OpenCV', 'NumPy', 'TorchVision'].map((tech, index) => (
                             <span
                                 key={index}
@@ -584,7 +568,7 @@ python codec_processing.py \\
             <section className="px-6 lg:px-20 xl:px-36 py-16 mb-8">
                 <div
                     className="max-w-4xl mx-auto text-center p-12 bg-gradient-to-r from-purple-600/10 to-pink-600/10 border border-purple-500/20 rounded-3xl"
-                    data-aos="fade-up"
+
                 >
                     <h2 className="text-3xl md:text-4xl font-bold mb-4">
                         Interested in Collaborating?

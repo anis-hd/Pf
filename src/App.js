@@ -7,8 +7,7 @@ import Skills from './components/Skills'
 import Education from './components/Ed';
 import Projects from './components/Projects';
 import Footer from './components/Footer';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+
 import Experience from './components/Experience';
 import HyperRaftPage from './components/HyperRaftPage';
 
@@ -30,7 +29,6 @@ function HomePage() {
 function App() {
   useEffect(() => {
     document.title = 'Anis Houidi';
-    AOS.init();
   }, []);
 
   return (

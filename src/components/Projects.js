@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown, faExternalLink, faCode, faCalendar, faTimes, faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { faExternalLink, faCode, faCalendar, faTimes, faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 // Import your assets
@@ -228,7 +228,7 @@ const categories = ["All", "AI/ML", "Data Engineering", "Full Stack", "Systems",
 
 export default function Projects() {
     const [selectedProject, setSelectedProject] = useState(null);
-    const [isCollapsed, setIsCollapsed] = useState(false);
+
     const [activeCategory, setActiveCategory] = useState("All");
     const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
 
@@ -267,33 +267,22 @@ export default function Projects() {
 
             <div className="relative z-10">
                 {/* Section Header */}
-                <div
-                    className="flex items-center justify-between cursor-pointer group mb-8"
-                    onClick={() => setIsCollapsed(!isCollapsed)}
-                    data-aos="fade-up"
-                >
+                <div className="flex items-center justify-between mb-8">
                     <div className="flex items-center gap-4">
                         <h2 className="text-4xl md:text-5xl font-bold text-white">
                             Projects
                         </h2>
                         <div className="hidden md:block h-1 w-24 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 rounded-full" />
                     </div>
-                    <div className={`w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-white/10 group-hover:border-purple-500/50 transition-all duration-300 ${isCollapsed ? '-rotate-90' : 'rotate-0'}`}>
-                        <FontAwesomeIcon
-                            icon={faChevronDown}
-                            className="text-gray-400 group-hover:text-purple-400 transition-colors"
-                        />
-                    </div>
                 </div>
 
-                {/* Collapsible Content */}
-                <div className={`overflow-hidden transition-all duration-500 ease-in-out ${isCollapsed ? 'max-h-0 opacity-0' : 'max-h-[8000px] opacity-100'}`}>
-                    <p className="text-gray-400 text-lg mb-6" data-aos="fade-up" data-aos-delay="100">
+                {/* Content */}
+                <div className="opacity-100 transition-all duration-500 ease-in-out">
+                    <p className="text-gray-400 text-lg mb-6">
                         A showcase of my work across different domains
                     </p>
 
-                    {/* Category Filter */}
-                    <div className="flex flex-wrap gap-3 mb-10" data-aos="fade-up" data-aos-delay="150">
+                    <div className="flex flex-wrap gap-3 mb-10">
                         {categories.map((cat, idx) => (
                             <button
                                 key={idx}
@@ -315,8 +304,6 @@ export default function Projects() {
                                 key={index}
                                 className="group relative cursor-pointer"
                                 onClick={() => handleCardClick(project)}
-                                data-aos="fade-up"
-                                data-aos-delay={index * 50}
                             >
                                 {/* Glow Effect */}
                                 <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-2xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500" />

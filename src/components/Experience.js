@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown, faBriefcase, faCalendar, faBuilding } from '@fortawesome/free-solid-svg-icons';
+import { faBriefcase, faCalendar, faBuilding } from '@fortawesome/free-solid-svg-icons';
 import imgTalan from "../assets/talan.png";
 import imgCogno from "../assets/cognoriseInfo.png";
 import imgGrift from "../assets/grift.jpg";
 
 export default function Experience() {
-    const [isCollapsed, setIsCollapsed] = useState(false);
+
     const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
 
     useEffect(() => {
@@ -71,28 +71,18 @@ export default function Experience() {
 
             <div className="relative z-10">
                 {/* Section Header */}
-                <div
-                    className="flex items-center justify-between cursor-pointer group mb-8"
-                    onClick={() => setIsCollapsed(!isCollapsed)}
-                    data-aos="fade-up"
-                >
+                <div className="flex items-center justify-between mb-8">
                     <div className="flex items-center gap-4">
                         <h2 className="text-4xl md:text-5xl font-bold text-white">
                             Experience
                         </h2>
                         <div className="hidden md:block h-1 w-24 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 rounded-full" />
                     </div>
-                    <div className={`w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-white/10 group-hover:border-purple-500/50 transition-all duration-300 ${isCollapsed ? '-rotate-90' : 'rotate-0'}`}>
-                        <FontAwesomeIcon
-                            icon={faChevronDown}
-                            className="text-gray-400 group-hover:text-purple-400 transition-colors"
-                        />
-                    </div>
                 </div>
 
-                {/* Collapsible Content */}
-                <div className={`overflow-hidden transition-all duration-500 ease-in-out ${isCollapsed ? 'max-h-0 opacity-0' : 'max-h-[4000px] opacity-100'}`}>
-                    <p className="text-gray-400 text-lg mb-10" data-aos="fade-up" data-aos-delay="100">
+                {/* Content */}
+                <div className="opacity-100 transition-all duration-500 ease-in-out">
+                    <p className="text-gray-400 text-lg mb-10">
                         My professional journey in tech
                     </p>
 
@@ -102,8 +92,6 @@ export default function Experience() {
                             <div
                                 key={index}
                                 className="group relative"
-                                data-aos="fade-up"
-                                data-aos-delay={index * 100}
                             >
                                 {/* Glow Effect */}
                                 <div className={`absolute -inset-0.5 bg-gradient-to-r ${exp.gradient} rounded-2xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500`} />

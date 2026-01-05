@@ -1,7 +1,7 @@
 export default function ExpCard(props) {
     return (
         // The main changes are in this line:
-        <div data-aos="fade-up" data-aos-duration="500" data-aos-offset="0" className="w-full bg-dark-100 py-4 px-4 flex items-start">
+        <div className="w-full bg-dark-100 py-4 px-4 flex items-start">
 
             {/* Image on the left */}
             <img src={props.img} className="w-20 max-h-20 mr-4 flex-shrink-0" alt={props.name} />

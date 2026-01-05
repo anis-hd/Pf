@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown, faGraduationCap, faCalendar } from '@fortawesome/free-solid-svg-icons';
+import { faGraduationCap, faCalendar } from '@fortawesome/free-solid-svg-icons';
 
 export default function Education() {
-    const [isCollapsed, setIsCollapsed] = useState(false);
+
     const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
 
     useEffect(() => {
@@ -46,28 +46,18 @@ export default function Education() {
 
             <div className="relative z-10">
                 {/* Section Header */}
-                <div
-                    className="flex items-center justify-between cursor-pointer group mb-8"
-                    onClick={() => setIsCollapsed(!isCollapsed)}
-                    data-aos="fade-up"
-                >
+                <div className="flex items-center justify-between mb-8">
                     <div className="flex items-center gap-4">
                         <h2 className="text-4xl md:text-5xl font-bold text-white">
                             Education
                         </h2>
                         <div className="hidden md:block h-1 w-24 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 rounded-full" />
                     </div>
-                    <div className={`w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-white/10 group-hover:border-purple-500/50 transition-all duration-300 ${isCollapsed ? '-rotate-90' : 'rotate-0'}`}>
-                        <FontAwesomeIcon
-                            icon={faChevronDown}
-                            className="text-gray-400 group-hover:text-purple-400 transition-colors"
-                        />
-                    </div>
                 </div>
 
-                {/* Collapsible Content */}
-                <div className={`overflow-hidden transition-all duration-500 ease-in-out ${isCollapsed ? 'max-h-0 opacity-0' : 'max-h-[2000px] opacity-100'}`}>
-                    <p className="text-gray-400 text-lg mb-10" data-aos="fade-up" data-aos-delay="100">
+                {/* Content */}
+                <div className="opacity-100 transition-all duration-500 ease-in-out">
+                    <p className="text-gray-400 text-lg mb-10">
                         My academic journey
                     </p>
 
@@ -82,8 +72,6 @@ export default function Education() {
                                 <div
                                     key={index}
                                     className={`relative flex flex-col md:flex-row gap-8 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
-                                    data-aos={index % 2 === 0 ? "fade-left" : "fade-right"}
-                                    data-aos-delay={index * 100}
                                 >
                                     {/* Timeline Dot */}
                                     <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 z-10" />

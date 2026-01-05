@@ -75,7 +75,7 @@ export default function Hiro() {
         <>
             <div id="home" className="flex w-full min-h-screen flex-col lg:flex-row gap-10 lg:gap-16 items-center justify-center text-white relative pt-20">
                 {/* Left Side - Name and Info */}
-                <div className='lg:w-1/2 flex flex-col justify-center order-2 lg:order-1' data-aos="fade-right" data-aos-duration="1000">
+                <div className='lg:w-1/2 flex flex-col justify-center order-2 lg:order-1'>
                     <div className="flex flex-col w-full">
                         {/* Large Name with Gradient */}
                         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4 leading-tight text-white">
@@ -128,7 +128,7 @@ export default function Hiro() {
                 </div>
 
                 {/* Right Side - Video Player */}
-                <div className='lg:w-1/2 flex justify-center items-center order-1 lg:order-2' data-aos="fade-left" data-aos-duration="1000">
+                <div className='lg:w-1/2 flex justify-center items-center order-1 lg:order-2'>
                     <div
                         className="relative w-full max-w-lg group"
                         onMouseEnter={() => setIsHovered(true)}

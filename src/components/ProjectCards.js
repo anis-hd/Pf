@@ -3,9 +3,7 @@
 export default function ProjectCard({ project, onClick }) {
     return (
         <div
-            data-aos="fade-up"
-            data-aos-duration="500"
-            data-aos-offset="100"
+
             className="hover:bg-dark-300 w-full h-full bg-dark-200 py-4 px-4 cursor-pointer transform hover:-translate-y-2 transition-transform duration-300"
             onClick={() => onClick(project)}
         >

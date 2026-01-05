@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import SkillCard from "./SkillCard.js";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+
 
 // Import your skill logos
 import javascript from "../assets/skills/javascript.svg";
@@ -90,7 +90,7 @@ export default function Skills() {
         };
     }, []);
 
-    const [isCollapsed, setIsCollapsed] = useState(false);
+
 
     return (
         <section id="skills" className="py-20 text-white relative">
@@ -104,35 +104,25 @@ export default function Skills() {
 
             <div className="relative z-10">
                 {/* Section Header */}
-                <div
-                    className="flex items-center justify-between cursor-pointer group mb-8"
-                    onClick={() => setIsCollapsed(!isCollapsed)}
-                    data-aos="fade-up"
-                >
+                <div className="flex items-center justify-between mb-8">
                     <div className="flex items-center gap-4">
                         <h2 className="text-4xl md:text-5xl font-bold text-white">
                             Tech Stack
                         </h2>
                         <div className="hidden md:block h-1 w-24 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 rounded-full" />
                     </div>
-                    <div className={`w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-white/10 group-hover:border-purple-500/50 transition-all duration-300 ${isCollapsed ? '-rotate-90' : 'rotate-0'}`}>
-                        <FontAwesomeIcon
-                            icon={faChevronDown}
-                            className="text-gray-400 group-hover:text-purple-400 transition-colors"
-                        />
-                    </div>
                 </div>
 
-                {/* Collapsible Content */}
-                <div className={`overflow-hidden transition-all duration-500 ease-in-out ${isCollapsed ? 'max-h-0 opacity-0' : 'max-h-[2000px] opacity-100'}`}>
+                {/* Content */}
+                <div className="opacity-100 transition-all duration-500 ease-in-out">
                     {/* Subtitle */}
-                    <p className="text-gray-400 text-lg mb-2" data-aos="fade-up" data-aos-delay="100">
+                    <p className="text-gray-400 text-lg mb-2">
                         Technologies I work with
                     </p>
 
 
                     {/* Skills Grid */}
-                    <div className="flex justify-center" data-aos="fade-up" data-aos-delay="200">
+                    <div className="flex justify-center">
                         <div className="inline-grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-9 gap-4">
                             {skills.map((skill, index) => (
                                 <SkillCard
@@ -145,8 +135,7 @@ export default function Skills() {
                         </div>
                     </div>
 
-                    {/* Categories Summary */}
-                    <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4" data-aos="fade-up" data-aos-delay="300">
+                    <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
                         <div className="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-purple-500/30 transition-all duration-300 group">
                             <div className="text-2xl font-bold text-white">
                                 AI/ML
