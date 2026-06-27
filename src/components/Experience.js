@@ -23,7 +23,7 @@ export default function Experience() {
     const experienceData = [
         {
             img: imgGrift,
-            title: "Computer Vision Intern",
+            title: "ML Engineer - Freelance",
             company: "GRIFT Group of CRISTAL Laboratory",
             date: "July 2025",
             desc: "Introducing Complex Moments and Fourier-Mellin Transform to deep learning Architectures for geometrically invariant semantic drone image segmentation in low-data regimes.",
