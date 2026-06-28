@@ -4,7 +4,7 @@ import { faBriefcase, faCalendar, faBuilding } from '@fortawesome/free-solid-svg
 import imgTalan from "../assets/talan.png";
 import imgCogno from "../assets/cognoriseInfo.png";
 import imgGrift from "../assets/grift.jpg";
-
+import imgEnsi from "../assets/skills/ensi.jpg";
 export default function Experience() {
 
     const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
@@ -55,6 +55,15 @@ export default function Experience() {
             date: "Summer 2023",
             desc: "Performed EDA, feature engineering, and implemented different ML models for various tasks including sentiment analysis and regression.",
             keywords: ["Python", "Data mining", "Scikit-learn", "EDA", "SVMs", "Random forests"],
+            gradient: "from-blue-500 to-cyan-500"
+        },
+        {
+            img: imgEnsi,
+            title: "Software development Intern",
+            company: "ENSI",
+            date: "Summer 2023",
+            desc: "Developed serious games in Android Studio & Java",
+            keywords: ["Java", "Android Studio", "Game Development"],
             gradient: "from-blue-500 to-cyan-500"
         }
     ];
