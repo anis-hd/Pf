@@ -5,6 +5,7 @@ import imgTalan from "../assets/talan.png";
 import imgCogno from "../assets/cognoriseInfo.png";
 import imgGrift from "../assets/grift.jpg";
 import imgEnsi from "../assets/skills/ensi.jpg";
+import cntxtai_logo from "../assets/skills/cntxtai_logo.jpg";
 export default function Experience() {
 
     const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
@@ -21,6 +22,18 @@ export default function Experience() {
     }, []);
 
     const experienceData = [
+
+        {
+            img: cntxtai_logo,
+            title: "Data Specialist - Freelance",
+            company: "CNTXT.AI",
+            date: "Jan 2026 - April 2026",
+            desc: "Curating Tunisian dialect datasets and developing AI powered apps.",
+            keywords: ["Generative AI", "Data cleaning", "Data Annotation"],
+            gradient: "from-green-500 to-emerald-500"
+        },
+
+
         {
             img: imgGrift,
             title: "ML Engineer - Freelance",
