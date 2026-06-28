@@ -14,14 +14,21 @@ import HyperRaftPage from './components/HyperRaftPage';
 // Home page component
 function HomePage() {
   return (
-    <div className="px-6 lg:px-20 xl:px-36 bg-gradient-to-b from-dark-500 to-dark-600 min-h-screen">
-      <Navbar />
-      <Hiro />
-      <Skills />
-      <Education />
-      <Experience />
-      <Projects />
-      <Footer />
+    <div className="min-h-screen bg-slate-100 text-slate-900 relative">
+      {/* Left side pattern bar */}
+      <div className="side-pattern side-pattern-left" />
+      {/* Right side pattern bar */}
+      <div className="side-pattern side-pattern-right" />
+
+      <div className="max-w-6xl mx-auto bg-white min-h-screen border-x border-slate-200/80 shadow-md relative z-10 px-6 md:px-12 lg:px-16">
+        <Navbar />
+        <Hiro />
+        <Skills />
+        <Education />
+        <Experience />
+        <Projects />
+        <Footer />
+      </div>
     </div>
   );
 }

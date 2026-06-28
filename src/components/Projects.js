@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExternalLink, faCode, faCalendar, faTimes, faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar, faTimes, faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 // Import your assets
@@ -228,20 +228,7 @@ const categories = ["All", "AI/ML", "Data Engineering", "Full Stack", "Systems",
 
 export default function Projects() {
     const [selectedProject, setSelectedProject] = useState(null);
-
     const [activeCategory, setActiveCategory] = useState("All");
-    const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
-
-    useEffect(() => {
-        const handleMouseMove = (e) => {
-            const x = (e.clientX / window.innerWidth) * 100;
-            const y = (e.clientY / window.innerHeight) * 100;
-            setMousePos({ x, y });
-        };
-
-        window.addEventListener('mousemove', handleMouseMove);
-        return () => window.removeEventListener('mousemove', handleMouseMove);
-    }, []);
 
     const handleCardClick = (project) => {
         setSelectedProject(project);
@@ -256,29 +243,21 @@ export default function Projects() {
         : projectData.filter(p => p.category === activeCategory);
 
     return (
-        <section id="certs" className="py-20 text-white relative">
-            {/* Background Gradient Orb */}
-            <div
-                className="absolute inset-0 pointer-events-none overflow-hidden"
-                style={{
-                    background: `radial-gradient(circle at ${mousePos.x}% ${mousePos.y}%, rgba(14, 165, 233, 0.06) 0%, transparent 50%)`
-                }}
-            />
-
+        <section id="certs" className="py-20 text-slate-900 relative">
             <div className="relative z-10">
                 {/* Section Header */}
                 <div className="flex items-center justify-between mb-8">
                     <div className="flex items-center gap-4">
-                        <h2 className="text-4xl md:text-5xl font-bold text-white">
+                        <h2 className="text-4xl md:text-5xl font-bold text-slate-900">
                             Projects
                         </h2>
-                        <div className="hidden md:block h-1 w-24 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 rounded-full" />
+                        <div className="hidden md:block h-1 w-24 bg-blue-600 rounded-full" />
                     </div>
                 </div>
 
                 {/* Content */}
                 <div className="opacity-100 transition-all duration-500 ease-in-out">
-                    <p className="text-gray-400 text-lg mb-6">
+                    <p className="text-slate-500 text-lg mb-6">
                         A showcase of my work across different domains
                     </p>
 
@@ -288,8 +267,8 @@ export default function Projects() {
                                 key={idx}
                                 onClick={() => setActiveCategory(cat)}
                                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeCategory === cat
-                                    ? 'bg-white text-dark-500'
-                                    : 'bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:border-white/50'
+                                    ? 'bg-blue-600 text-white shadow-sm'
+                                    : 'bg-slate-100 border border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-200 hover:border-slate-300'
                                     }`}
                             >
                                 {cat}
@@ -305,11 +284,8 @@ export default function Projects() {
                                 className="group relative cursor-pointer"
                                 onClick={() => handleCardClick(project)}
                             >
-                                {/* Glow Effect */}
-                                <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-2xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
-
                                 {/* Card */}
-                                <div className="relative rounded-2xl bg-white/5 border border-white/10 overflow-hidden hover:border-white/20 transition-all duration-300 h-full flex flex-col">
+                                <div className="relative rounded-2xl bg-white border border-slate-200 overflow-hidden shadow-sm hover:border-blue-500/30 hover:shadow-md transition-all duration-300 h-full flex flex-col">
                                     {/* Image */}
                                     <div className="relative h-48 overflow-hidden">
                                         <img
@@ -317,17 +293,17 @@ export default function Projects() {
                                             alt={project.name}
                                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                         />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
                                         {/* Category Badge */}
                                         <div className="absolute top-4 left-4">
-                                            <span className="px-3 py-1 rounded-full bg-black/50 backdrop-blur-sm text-xs font-medium border border-white/20">
+                                            <span className="px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-sm text-xs font-medium text-white border border-slate-800">
                                                 {project.category}
                                             </span>
                                         </div>
 
                                         {/* Date */}
-                                        <div className="absolute bottom-4 left-4 flex items-center gap-2 text-sm text-gray-300">
+                                        <div className="absolute bottom-4 left-4 flex items-center gap-2 text-sm text-slate-100">
                                             <FontAwesomeIcon icon={faCalendar} className="text-xs" />
                                             {project.date}
                                         </div>
@@ -335,25 +311,25 @@ export default function Projects() {
 
                                     {/* Content */}
                                     <div className="p-5 flex-1 flex flex-col">
-                                        <h3 className="text-lg font-bold mb-2 group-hover:text-purple-400 transition-colors line-clamp-1">
+                                        <h3 className="text-lg font-bold mb-2 text-slate-900 group-hover:text-blue-600 transition-colors line-clamp-1">
                                             {project.name}
                                         </h3>
-                                        <p className="text-gray-500 text-sm mb-2">
+                                        <p className="text-slate-500 text-sm mb-2">
                                             {project.issued}
                                         </p>
-                                        <p className="text-gray-400 text-sm line-clamp-2 flex-1">
+                                        <p className="text-slate-600 text-sm line-clamp-2 flex-1">
                                             {project.desc}
                                         </p>
 
                                         {/* Links */}
-                                        <div className="flex items-center gap-3 mt-4 pt-4 border-t border-white/10">
+                                        <div className="flex items-center gap-3 mt-4 pt-4 border-t border-slate-100">
                                             {project.repoLink && (
                                                 <a
                                                     href={project.repoLink}
                                                     target="_blank"
                                                     rel="noreferrer"
                                                     onClick={(e) => e.stopPropagation()}
-                                                    className="text-gray-400 hover:text-purple-400 transition-colors"
+                                                    className="text-slate-400 hover:text-blue-600 transition-colors"
                                                 >
                                                     <FontAwesomeIcon icon={faGithub} />
                                                 </a>
@@ -364,12 +340,12 @@ export default function Projects() {
                                                     target="_blank"
                                                     rel="noreferrer"
                                                     onClick={(e) => e.stopPropagation()}
-                                                    className="text-gray-400 hover:text-purple-400 transition-colors"
+                                                    className="text-slate-400 hover:text-blue-600 transition-colors"
                                                 >
                                                     <FontAwesomeIcon icon={faGlobe} />
                                                 </a>
                                             )}
-                                            <span className="ml-auto text-xs text-gray-500 group-hover:text-purple-400 transition-colors">
+                                            <span className="ml-auto text-xs text-slate-400 group-hover:text-blue-600 transition-colors">
                                                 Click for details →
                                             </span>
                                         </div>
@@ -384,17 +360,17 @@ export default function Projects() {
             {/* Modal */}
             {selectedProject && (
                 <div
-                    className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+                    className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm"
                     onClick={handleCloseModal}
                 >
                     <div
-                        className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl bg-dark-500 border border-white/20"
+                        className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl bg-white border border-slate-200 shadow-xl animate-in fade-in zoom-in-95 duration-200"
                         onClick={(e) => e.stopPropagation()}
                     >
                         {/* Close Button */}
                         <button
                             onClick={handleCloseModal}
-                            className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center text-gray-400 hover:text-white transition-colors"
+                            className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-slate-100/90 backdrop-blur-sm flex items-center justify-center text-slate-600 hover:text-slate-900 transition-colors border border-slate-200"
                         >
                             <FontAwesomeIcon icon={faTimes} />
                         </button>
@@ -406,36 +382,36 @@ export default function Projects() {
                                 alt={selectedProject.name}
                                 className="w-full h-full object-cover"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-dark-500 via-transparent to-transparent" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
                         </div>
 
                         {/* Modal Content */}
                         <div className="p-6 -mt-16 relative z-10">
                             {/* Category & Date */}
                             <div className="flex items-center gap-3 mb-4">
-                                <span className="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white text-xs font-medium">
+                                <span className="px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-800 text-xs font-medium">
                                     {selectedProject.category}
                                 </span>
-                                <span className="text-gray-400 text-sm flex items-center gap-2">
+                                <span className="text-slate-500 text-sm flex items-center gap-2">
                                     <FontAwesomeIcon icon={faCalendar} className="text-xs" />
                                     {selectedProject.date}
                                 </span>
                             </div>
 
                             {/* Title */}
-                            <h2 className="text-2xl md:text-3xl font-bold mb-2 text-white">
+                            <h2 className="text-2xl md:text-3xl font-bold mb-2 text-slate-900">
                                 {selectedProject.name}
                             </h2>
 
                             {/* Issued */}
-                            <p className="text-gray-400 mb-6">
+                            <p className="text-slate-500 mb-6">
                                 {selectedProject.issued}
                             </p>
 
                             {/* Description */}
                             <div className="space-y-4 mb-6">
                                 {selectedProject.details.map((paragraph, idx) => (
-                                    <p key={idx} className="text-gray-300 leading-relaxed">
+                                    <p key={idx} className="text-slate-700 leading-relaxed">
                                         {paragraph}
                                     </p>
                                 ))}
@@ -448,7 +424,7 @@ export default function Projects() {
                                         href={selectedProject.repoLink}
                                         target="_blank"
                                         rel="noreferrer"
-                                        className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 border border-white/20 rounded-lg font-medium hover:bg-white/20 transition-all duration-300"
+                                        className="inline-flex items-center gap-2 px-6 py-3 bg-slate-100 border border-slate-200 rounded-lg font-medium text-slate-700 hover:bg-slate-200 transition-all duration-300"
                                     >
                                         <FontAwesomeIcon icon={faGithub} />
                                         View Code
@@ -459,7 +435,7 @@ export default function Projects() {
                                         href={selectedProject.liveLink}
                                         target="_blank"
                                         rel="noreferrer"
-                                        className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-medium hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300"
+                                        className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 shadow-sm hover:shadow transition-all duration-300"
                                     >
                                         <FontAwesomeIcon icon={faGlobe} />
                                         Live Demo

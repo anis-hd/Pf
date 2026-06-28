@@ -1,70 +1,45 @@
-import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGraduationCap, faCalendar } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar } from '@fortawesome/free-solid-svg-icons';
 
 export default function Education() {
-
-    const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
-
-    useEffect(() => {
-        const handleMouseMove = (e) => {
-            const x = (e.clientX / window.innerWidth) * 100;
-            const y = (e.clientY / window.innerHeight) * 100;
-            setMousePos({ x, y });
-        };
-
-        window.addEventListener('mousemove', handleMouseMove);
-        return () => window.removeEventListener('mousemove', handleMouseMove);
-    }, []);
-
     const educationData = [
         {
             school: "National School of Computer Science",
             degree: "M.Eng Computer Science, AI & Decision Systems",
             description: "Computer science, software engineering and applied mathematics.",
-            year: "2021 - 2025",
-            gradient: "from-purple-500 to-pink-500"
+            year: "2021 - 2025"
         },
         {
             school: "Preparatory Institute for Engineering Studies of Nabeul",
             degree: "Physics and Chemistry",
             description: "Two years of intensive studies in Mathematics, Physics and Industrial Sciences for the national engineering contest.",
-            year: "2019 - 2021",
-            gradient: "from-blue-500 to-cyan-500"
+            year: "2019 - 2021"
         }
     ];
 
     return (
-        <section id="honors" className="py-20 text-white relative">
-            {/* Background Gradient Orb */}
-            <div
-                className="absolute inset-0 pointer-events-none overflow-hidden"
-                style={{
-                    background: `radial-gradient(circle at ${mousePos.x}% ${mousePos.y}%, rgba(217, 70, 239, 0.06) 0%, transparent 50%)`
-                }}
-            />
-
+        <section id="honors" className="py-20 text-slate-900 relative">
             <div className="relative z-10">
                 {/* Section Header */}
                 <div className="flex items-center justify-between mb-8">
                     <div className="flex items-center gap-4">
-                        <h2 className="text-4xl md:text-5xl font-bold text-white">
+                        <h2 className="text-4xl md:text-5xl font-bold text-slate-900">
                             Education
                         </h2>
-                        <div className="hidden md:block h-1 w-24 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 rounded-full" />
+                        <div className="hidden md:block h-1 w-24 bg-blue-600 rounded-full" />
                     </div>
                 </div>
 
                 {/* Content */}
                 <div className="opacity-100 transition-all duration-500 ease-in-out">
-                    <p className="text-gray-400 text-lg mb-10">
+                    <p className="text-slate-500 text-lg mb-10">
                         My academic journey
                     </p>
 
                     {/* Timeline */}
                     <div className="relative">
                         {/* Timeline Line */}
-                        <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-purple-500 via-pink-500 to-blue-500 hidden md:block" />
+                        <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-slate-200 hidden md:block" />
 
                         {/* Education Cards */}
                         <div className="space-y-8">
@@ -74,29 +49,29 @@ export default function Education() {
                                     className={`relative flex flex-col md:flex-row gap-8 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
                                 >
                                     {/* Timeline Dot */}
-                                    <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 z-10" />
+                                    <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-blue-600 z-10" />
 
                                     {/* Content */}
                                     <div className={`flex-1 ${index % 2 === 0 ? 'md:text-right md:pr-12' : 'md:pl-12'}`}>
-                                        <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-500/30 transition-all duration-300 group">
+                                        <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:border-blue-500/30 hover:shadow-md transition-all duration-300 group">
                                             {/* Year Badge */}
-                                            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r ${edu.gradient} bg-opacity-20 text-sm font-medium mb-4`}>
+                                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-sm font-medium mb-4">
                                                 <FontAwesomeIcon icon={faCalendar} className="text-xs" />
                                                 {edu.year}
                                             </div>
 
                                             {/* School Name */}
-                                            <h3 className="text-xl md:text-2xl font-bold mb-2 group-hover:text-purple-400 transition-colors">
+                                            <h3 className="text-xl md:text-2xl font-bold mb-2 text-slate-900 group-hover:text-blue-600 transition-colors">
                                                 {edu.school}
                                             </h3>
 
                                             {/* Degree */}
-                                            <p className={`text-lg font-medium bg-gradient-to-r ${edu.gradient} bg-clip-text text-transparent mb-3`}>
+                                            <p className="text-lg font-semibold text-blue-600 mb-3">
                                                 {edu.degree}
                                             </p>
 
                                             {/* Description */}
-                                            <p className="text-gray-400 leading-relaxed">
+                                            <p className="text-slate-600 leading-relaxed">
                                                 {edu.description}
                                             </p>
                                         </div>

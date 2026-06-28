@@ -7,23 +7,11 @@ import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import hyperraftVideo from '../assets/hyperraft.mp4';
 
 export default function Hiro() {
-    const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
     const [isPlaying, setIsPlaying] = useState(true);
     const [isMuted, setIsMuted] = useState(true);
     const [progress, setProgress] = useState(0);
     const [isHovered, setIsHovered] = useState(false);
     const videoRef = useRef(null);
-
-    useEffect(() => {
-        const handleMouseMove = (e) => {
-            const x = (e.clientX / window.innerWidth) * 100;
-            const y = (e.clientY / window.innerHeight) * 100;
-            setMousePos({ x, y });
-        };
-
-        window.addEventListener('mousemove', handleMouseMove);
-        return () => window.removeEventListener('mousemove', handleMouseMove);
-    }, []);
 
     useEffect(() => {
         const video = videoRef.current;
@@ -73,16 +61,16 @@ export default function Hiro() {
 
     return (
         <>
-            <div id="home" className="flex w-full min-h-screen flex-col lg:flex-row gap-10 lg:gap-16 items-center justify-center text-white relative pt-20">
+            <div id="home" className="flex w-full min-h-screen flex-col lg:flex-row gap-10 lg:gap-16 items-center justify-center text-slate-900 relative pt-20">
                 {/* Left Side - Name and Info */}
                 <div className='lg:w-1/2 flex flex-col justify-center order-2 lg:order-1'>
                     <div className="flex flex-col w-full">
-                        {/* Large Name with Gradient */}
-                        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4 leading-tight text-white">
+                        {/* Large Name */}
+                        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4 leading-tight text-slate-900">
                             Anis Houidi
                         </h1>
-                        <p className="text-xl md:text-2xl font-semibold text-gray-300 mb-6">
-                            <span className="text-primary">
+                        <p className="text-xl md:text-2xl font-semibold text-slate-700 mb-6">
+                            <span className="text-blue-600">
                                 <Typewriter
                                     texts={["Computer Science Engineer", "AI Engineer", "Data Science Enthusiast"]}
                                     delay={80}
@@ -90,7 +78,7 @@ export default function Hiro() {
                                 />
                             </span>
                         </p>
-                        <p className="text-lg font-light text-gray-400 leading-relaxed max-w-xl">
+                        <p className="text-lg font-light text-slate-600 leading-relaxed max-w-xl">
                             A computer science engineering graduate with a passion for solving complex challenges through out-of-the-box thinking and strong analytical skills. Interested in emerging technologies, especially Artificial Intelligence and Machine Learning.
                         </p>
                     </div>
@@ -100,7 +88,7 @@ export default function Hiro() {
                             href='https://www.linkedin.com/in/anis-ben-houidi/'
                             target="_blank"
                             rel="noreferrer"
-                            className='inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-medium shadow-lg hover:shadow-purple-500/30 hover:scale-105 transition-all duration-300'
+                            className='inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-full font-medium shadow-sm hover:bg-blue-700 hover:shadow transition-all duration-300'
                         >
                             Let's connect!
                             <FontAwesomeIcon icon={faCircleArrowRight} className="group-hover:translate-x-1 transition-transform" />
@@ -111,7 +99,7 @@ export default function Hiro() {
                                 href='https://github.com/anis-hd'
                                 rel="noreferrer"
                                 target="_blank"
-                                className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-purple-500/50 hover:bg-white/10 transition-all duration-300 group"
+                                className="w-12 h-12 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 hover:text-slate-900 hover:bg-slate-50 hover:border-slate-300 transition-all duration-300 group"
                             >
                                 <FontAwesomeIcon icon={faGithub} className="text-xl group-hover:scale-110 transition-transform" />
                             </a>
@@ -119,7 +107,7 @@ export default function Hiro() {
                                 href='https://www.linkedin.com/in/anis-ben-houidi/'
                                 rel="noreferrer"
                                 target="_blank"
-                                className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-purple-500/50 hover:bg-white/10 transition-all duration-300 group"
+                                className="w-12 h-12 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 hover:text-slate-900 hover:bg-slate-50 hover:border-slate-300 transition-all duration-300 group"
                             >
                                 <FontAwesomeIcon icon={faLinkedinIn} className="text-xl group-hover:scale-110 transition-transform" />
                             </a>
@@ -135,14 +123,13 @@ export default function Hiro() {
                         onMouseLeave={() => setIsHovered(false)}
                     >
                         {/* "Check This Out" Heading - Above Video */}
-                        <h3 className="text-2xl md:text-3xl font-bold mb-4 text-center text-white">
+                        <h3 className="text-2xl md:text-3xl font-bold mb-4 text-center text-slate-900">
                             Check This Out!
                         </h3>
 
-                        {/* Video Container with Glow */}
+                        {/* Video Container */}
                         <div className="relative">
-                            {/* Video Container */}
-                            <div className="relative rounded-2xl overflow-hidden border border-white/20 bg-black/40 backdrop-blur-sm shadow-2xl">
+                            <div className="relative rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-lg">
                                 {/* Video Element */}
                                 <video
                                     ref={videoRef}
@@ -176,7 +163,7 @@ export default function Hiro() {
                                         onClick={handleProgressClick}
                                     >
                                         <div
-                                            className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full relative"
+                                            className="h-full bg-blue-600 rounded-full relative"
                                             style={{ width: `${progress}%` }}
                                         >
                                             <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full opacity-0 group-hover/progress:opacity-100 transition-opacity"></div>
@@ -188,20 +175,20 @@ export default function Hiro() {
                                         <div className="flex items-center gap-4">
                                             <button
                                                 onClick={togglePlay}
-                                                className="text-white hover:text-purple-400 transition-colors"
+                                                className="text-white hover:text-blue-400 transition-colors"
                                             >
                                                 <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} />
                                             </button>
                                             <button
                                                 onClick={toggleMute}
-                                                className="text-white hover:text-purple-400 transition-colors"
+                                                className="text-white hover:text-blue-400 transition-colors"
                                             >
                                                 <FontAwesomeIcon icon={isMuted ? faVolumeMute : faVolumeUp} />
                                             </button>
                                         </div>
                                         <button
                                             onClick={handleFullscreen}
-                                            className="text-white hover:text-purple-400 transition-colors"
+                                            className="text-white hover:text-blue-400 transition-colors"
                                         >
                                             <FontAwesomeIcon icon={faExpand} />
                                         </button>
@@ -210,7 +197,7 @@ export default function Hiro() {
 
                                 {/* "Learned Video Compression" Label - On Video */}
                                 <div className="absolute top-4 left-4">
-                                    <span className="px-3 py-1.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full text-xs font-semibold uppercase tracking-wider shadow-lg">
+                                    <span className="px-3 py-1.5 bg-blue-600 text-white rounded-full text-xs font-semibold uppercase tracking-wider shadow">
                                         Learned Video Codec
                                     </span>
                                 </div>
@@ -218,14 +205,14 @@ export default function Hiro() {
                         </div>
 
                         {/* Description Text - Below Video */}
-                        <p className="mt-4 text-center text-gray-400 text-sm md:text-base font-light">
+                        <p className="mt-4 text-center text-slate-500 text-sm md:text-base font-light">
                             80% of the frames in this video are reconstructed during decoding.
                         </p>
 
                         {/* Click for More Link */}
                         <Link
                             to="/hyperraft"
-                            className="mt-3 flex items-center justify-center gap-2 text-gray-400 hover:text-white transition-all duration-300 group/link"
+                            className="mt-3 flex items-center justify-center gap-2 text-slate-500 hover:text-blue-600 transition-all duration-300 group/link"
                         >
                             <span className="text-sm font-medium">Click for more</span>
                             <FontAwesomeIcon

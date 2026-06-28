@@ -3,25 +3,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 export default function Navbar() {
-    const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     useEffect(() => {
-        const handleMouseMove = (e) => {
-            const x = (e.clientX / window.innerWidth) * 100;
-            const y = (e.clientY / window.innerHeight) * 100;
-            setMousePos({ x, y });
-        };
-
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 50);
         };
 
-        window.addEventListener('mousemove', handleMouseMove);
         window.addEventListener('scroll', handleScroll);
         return () => {
-            window.removeEventListener('mousemove', handleMouseMove);
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
@@ -36,12 +27,12 @@ export default function Navbar() {
 
     return (
         <>
-            <nav className={`fixed z-50 w-full top-0 left-0 px-6 lg:px-20 xl:px-36 py-4 transition-all duration-300 ${isScrolled ? 'bg-dark-500/95 backdrop-blur-md border-b border-white/10 shadow-lg' : 'bg-transparent'}`}>
-                <div className="flex justify-between items-center text-white max-w-7xl mx-auto">
+            <nav className={`fixed z-50 max-w-5xl w-full top-0 left-1/2 -translate-x-1/2 px-6 md:px-12 lg:px-16 py-4 transition-all duration-300 border-x border-transparent ${isScrolled ? 'bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-sm !border-slate-200/80' : 'bg-transparent'}`}>
+                <div className="flex justify-between items-center text-slate-800 max-w-7xl mx-auto">
                     {/* Logo */}
                     <a
                         href="#home"
-                        className="font-bold text-2xl text-white hover:scale-105 transition-all duration-300"
+                        className="font-bold text-2xl text-slate-900 hover:scale-105 transition-all duration-300"
                     >
                         Anis.
                     </a>
@@ -52,10 +43,10 @@ export default function Navbar() {
                             <li key={idx}>
                                 <a
                                     href={link.href}
-                                    className="relative px-4 py-2 text-gray-300 hover:text-white transition-colors duration-300 group"
+                                    className="relative px-4 py-2 text-slate-600 hover:text-slate-900 transition-colors duration-300 group"
                                 >
                                     {link.name}
-                                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 group-hover:w-3/4 transition-all duration-300 rounded-full" />
+                                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-blue-600 group-hover:w-3/4 transition-all duration-300 rounded-full" />
                                 </a>
                             </li>
                         ))}
@@ -64,7 +55,7 @@ export default function Navbar() {
                     {/* Mobile Menu Button */}
                     <button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        className="md:hidden w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-purple-500/50 transition-all duration-300"
+                        className="md:hidden w-10 h-10 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-500 hover:text-slate-900 hover:border-slate-300 hover:bg-slate-200 transition-all duration-300"
                     >
                         <FontAwesomeIcon icon={isMobileMenuOpen ? faTimes : faBars} />
                     </button>
@@ -75,19 +66,19 @@ export default function Navbar() {
             <div className={`fixed inset-0 z-40 md:hidden transition-all duration-300 ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
                 {/* Backdrop */}
                 <div
-                    className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+                    className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm"
                     onClick={() => setIsMobileMenuOpen(false)}
                 />
 
                 {/* Menu Content */}
-                <div className={`absolute top-20 left-6 right-6 bg-dark-500/95 backdrop-blur-md border border-white/10 rounded-2xl p-6 transition-all duration-300 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'}`}>
+                <div className={`absolute top-20 left-6 right-6 bg-white/95 backdrop-blur-md border border-slate-200 shadow-xl rounded-2xl p-6 transition-all duration-300 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'}`}>
                     <ul className="space-y-2">
                         {navLinks.map((link, idx) => (
                             <li key={idx}>
                                 <a
                                     href={link.href}
                                     onClick={() => setIsMobileMenuOpen(false)}
-                                    className="block px-4 py-3 rounded-xl text-gray-300 hover:text-white hover:bg-white/5 transition-all duration-300"
+                                    className="block px-4 py-3 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-all duration-300"
                                 >
                                     {link.name}
                                 </a>
