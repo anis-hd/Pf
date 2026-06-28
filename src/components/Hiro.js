@@ -207,7 +207,7 @@ export default function Hiro() {
 
                         {/* Description Text - Below Video */}
                         <p className="mt-4 text-center text-slate-500 text-sm md:text-base font-light">
-                            80% of the frames in this video are reconstructed during decoding.
+                            80% of the frames in this video are not real.
                         </p>
 
                         {/* Click for More Link */}
@@ -215,7 +215,7 @@ export default function Hiro() {
                             to="/hyperraft"
                             className="mt-3 flex items-center justify-center gap-2 text-slate-500 hover:text-blue-600 transition-all duration-300 group/link"
                         >
-                            <span className="text-sm font-medium">Click for more</span>
+                            <span className="text-sm font-medium">Learn more</span>
                             <FontAwesomeIcon
                                 icon={faCircleArrowRight}
                                 className="group-hover/link:translate-x-1 transition-transform duration-300"
