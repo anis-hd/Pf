@@ -72,15 +72,16 @@ export default function Hiro() {
                         <p className="text-xl md:text-2xl font-semibold text-slate-700 mb-6">
                             <span className="text-blue-600">
                                 <Typewriter
-                                    texts={["Computer Science Engineer", "AI Engineer", "Data Science Enthusiast"]}
+                                    texts={["Software Engineer", "AI Engineer", "Data Science Enthusiast"]}
                                     delay={80}
                                     infinite
                                 />
                             </span>
                         </p>
                         <p className="text-lg font-light text-slate-600 leading-relaxed max-w-xl">
-                            A computer science engineering graduate with a passion for solving complex challenges through out-of-the-box thinking and strong analytical skills. Interested in emerging technologies, especially Artificial Intelligence and Machine Learning.
-                        </p>
+                            Computer Science Engineer with a foundation in software development, machine learning, and data engineering.
+                            Experienced in building and deploying end-to-end applications, optimizing models, and developing clean, scalable
+                            solutions.                        </p>
                     </div>
 
                     <div className="flex items-center gap-4 mt-8">

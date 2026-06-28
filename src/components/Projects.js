@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendar, faTimes, faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
-// Import your assets
+// Import assets
 import RadAi from "../assets/certs/RadAi.png";
 import portfolio from "../assets/certs/portfolio.jpg";
 import arabic from "../assets/certs/arabic.jpg";
@@ -20,14 +20,28 @@ import smiles from "../assets/projects/smiles.jpg";
 import wifi from "../assets/projects/wifi.jpg";
 import map from "../assets/projects/map.jpg";
 import sketch from "../assets/projects/sketch.jpg";
-
+import cnn from "../assets/skills/cnn.webp";
+import tunibot from "../assets/skills/tunibot.png";
 const projectData = [
     {
-        name: "AI Recruitment Test Generator",
+        name: "TuniBot: Multi-Agent AI that Speaks Tunisian",
+        img: tunibot,
+        issued: "Talan Tunisie Bootcamp",
+        desc: "Engineered a multi-agent framework powered by TuniSpeak (an internal dialectal LLM) featuring specialized agents for Translation, Music Recommendation, and Cultural Insights.",
+        date: "feb - 2025",
+        repoLink: "",
+        category: "AI/ML",
+        details: [
+            "Engineered a multi-agent framework powered by TuniSpeak (an internal dialectal LLM) featuring specialized agents for Translation, Music Recommendation, and Cultural Insights.",
+            "Integrated Vosk ASR for speech-to-text, PyTesseract for vision OCR, and dynamic context-based routing for seamless inter-agent coordination."
+        ]
+    },
+    {
+        name: "AI Recruitment Test Generator for EY x IKU Hackathon",
         img: hr,
         issued: "EYxUIK AI Hackathon",
-        desc: "Developed an LLM-powered solution using Llama 3.1 and RAG to automatically generate recruitment tests for the EYxUIK AI Hackathon.",
-        date: "July 2024",
+        desc: "Architected and engineered an LLM-powered multi-modal pipeline utilizing Llama 3.1 and RAG to automatically generate comprehensive recruitment tests, winning 2nd place.",
+        date: "dec - 2024",
         repoLink: "https://github.com/4nisHd/Recruitment-Test-Generator",
         category: "AI/ML",
         details: [
@@ -35,29 +49,18 @@ const projectData = [
             "I implemented a Retrieval-Augmented Generation (RAG) pipeline. The system first retrieves relevant technical concepts from a vector database and then feeds this context to a fine-tuned Llama 3.1 model to generate high-quality, relevant questions and coding challenges."
         ]
     },
+
     {
-        name: "Quantum Farm Weather Prediction",
-        img: farm,
-        issued: "Quantum Challenge",
-        desc: "Used QLSTM for long-term prediction and QSVM for short-term prediction and detecting equipment malfunction.",
-        date: "June 2024",
-        category: "Quantum",
-        details: [
-            "This project explored the application of quantum machine learning to agricultural technology. The primary goal was to create a robust weather prediction model for optimizing farm operations.",
-            "A Quantum Long Short-Term Memory (QLSTM) network was implemented for forecasting long-term weather patterns, while a Quantum Support Vector Machine (QSVM) was used for more immediate, short-term predictions. The QSVM was also effective in detecting anomalies in sensor data, indicating potential equipment malfunctions."
-        ]
-    },
-    {
-        name: "Ophthalmic Disease Diagnosis",
+        name: "Ophthalmic Eye Disease Diagnosis",
         img: ophthalmo,
         issued: "Talan Tunisie Bootcamp",
-        desc: "Manual data collection, cleaning, and implementation of different computer vision models for classification, alongside rule-based methods for diagnosis.",
+        desc: "Collaborated directly with medical professionals to preprocess clinical eye region data and develop computer vision models utilizing VGG16.",
         date: "March 2024",
         repoLink: "https://github.com/4nisHd/Ophthalmic-Disease-Diagnosis-and-Grading",
         category: "AI/ML",
         details: [
-            "As part of a bootcamp with Talan Tunisie, this project focused on diagnosing eye diseases from retinal scans. A significant part of the project involved the manual collection and meticulous cleaning of a diverse dataset of ophthalmic images.",
-            "Several computer vision models, including ResNet and VGG, were trained and evaluated for classification accuracy. To enhance diagnostic reliability, a rule-based system was integrated to cross-reference model outputs with established medical criteria, providing a more robust final diagnosis."
+            "Collaborated directly with medical professionals to aggregate, clean, and preprocess clinical eye region data.",
+            "Developed advanced computer vision models, combining deep learning (VGG16) and geometric models utilizing clinical metrics (MRD1/MRD2) for automated disease diagnosis."
         ]
     },
     {
@@ -69,32 +72,46 @@ const projectData = [
         repoLink: "https://github.com/4nisHd/SMILES-sequence-prediction",
         category: "AI/ML",
         details: [
-            "This project delves into computational drug discovery by predicting SMILES strings (a textual representation of a molecule's structure) from protein target sequences. This can significantly accelerate the initial stages of drug development.",
-            "A transformer-based sequence-to-sequence model was fine-tuned for this task. A key focus was on explainable AI (XAI) techniques to understand which parts of the protein sequence were most influential in determining the final drug structure, adding a layer of interpretability to the generative process."
+            "Led a computational drug discovery initiative during the Talan PFE Bootcamp to predict SMILES molecular structures directly from protein target sequences.",
+            "Fine-tuned and benchmarked multiple LLMs (BioBERT, Mistral, DeepSeek) utilizing LoRA to optimize generation accuracy."
         ]
     },
     {
-        name: "Movement Detection from WiFi Signals",
+        name: "Human Movement Prediction via WiFi Channel State Information (CSI)",
         img: wifi,
         issued: "Talan Tunisie Bootcamp",
-        desc: "Detected movement from the fluctuations of WiFi signals using RNNs and CNNs.",
+        desc: "Processed and filtered noisy WiFi CSI amplitude and phase data to extract spatial-temporal features representing human presence and motion.",
         date: "December 2023",
         category: "AI/ML",
         details: [
-            "This project explored a device-free approach to motion detection by analyzing Channel State Information (CSI) from standard WiFi signals. The presence of a person in a room subtly alters these signals, creating patterns that can be learned.",
-            "Recurrent Neural Networks (RNNs) were employed to capture the temporal dependencies in the WiFi signal fluctuations over time, while Convolutional Neural Networks (CNNs) were used to extract spatial features from the signal data, creating a powerful hybrid model for accurate movement detection."
+            "Processed and filtered noisy WiFi CSI (Channel State Information) amplitude and phase data to extract spatial-temporal features representing human presence and motion.",
+            "Engineered a hybrid deep learning architecture combining CNNs to extract spatial patterns from subcarriers, and LSTM networks to capture the temporal sequence of movements."
         ]
     },
     {
-        name: "AI Guidance Map for Travellers",
+        name: "AI Guidance Map for Travelers",
         img: map,
         issued: "Projet Technologique Encadré",
-        desc: "Used LLMs and Dijkstra's algorithm for a guidance map system for foreign travellers in Tunis.",
+        desc: "Integrated the Qwen 2.5 LLM with Dijkstra's algorithm and Google Maps APIs to engineer an intelligent routing system in Tunis.",
         date: "November 2023",
         category: "AI/ML",
         details: [
-            "The goal of this project was to create an intelligent map for tourists that combines optimal pathfinding with rich, contextual information. The system was designed specifically for travellers navigating the city of Tunis.",
-            "Dijkstra's algorithm formed the core of the navigation system, ensuring the shortest path between two points. This was enhanced by a Large Language Model (LLM) that interpreted natural language queries and provided detailed, interesting descriptions of landmarks and points of interest along the calculated route."
+            "Integrated the Qwen 2.5 LLM with Dijkstra's algorithm and Google Maps APIs to engineer an intelligent, context-aware routing and guidance system for foreign travelers in Tunis."
+        ]
+    },
+
+
+    {
+        name: "Radiology Platform for AI-assisted Disease Diagnosis",
+        img: RadAi,
+        issued: "ENSI PCD",
+        desc: "A full-stack platform enabling healthcare practitioners to collaborate and automate medical scan diagnoses with secure 2FA and CNN classifiers.",
+        date: "Jan-May 2023",
+        category: "Full Stack",
+        details: [
+            "Developed a full-stack platform enabling healthcare practitioners to collaborate and automate medical scan diagnoses.",
+            "Built a secure Django backend with a MySQL database, integrating a robust multi-user 2FA system using OTPs.",
+            "Trained and deployed a Convolutional Neural Network (CNN) in TensorFlow for accurate image classification."
         ]
     },
     {
@@ -111,39 +128,42 @@ const projectData = [
         ]
     },
     {
-        name: "Real-Time Weather Data Pipeline",
+        name: "Lambda Architecture Weather Big Data Analysis",
         img: bigdata,
         issued: "Academic Project",
-        desc: "Engineered a multi-node big data pipeline using HDFS, Spark, and Cassandra to process and store real-time weather data.",
+        desc: "Designed a highly available Lambda architecture to ingest, stream, and analyze real-time OpenWeather API data using Kafka, Spark, HDFS, and Cassandra.",
         date: "November 2024",
         category: "Data Engineering",
         details: [
-            "This project involved architecting a complete big data ecosystem. The foundation was a multi-node cluster running the Hadoop Distributed File System (HDFS), which provided a scalable and fault-tolerant storage layer for the raw, incoming weather data from the OpenWeather API.",
-            "Apache Spark's Structured Streaming was used as the real-time processing engine. It ingested the data, performed transformations and aggregations in-memory, and then implemented a dual-storage strategy: the processed, query-ready results were written to Apache Cassandra for low-latency access, while the raw historical data was persisted in HDFS for long-term storage and potential batch analysis."
+            "Designed a highly available Lambda architecture to ingest and analyze real-time OpenWeather API data.",
+            "Streamed data via Apache Kafka and processed it in real-time using Apache Spark.",
+            "Configured a containerized HDFS cluster and Cassandra NoSQL database for robust batch processing and analytics."
         ]
     },
     {
-        name: "Business Intelligence data pipeline",
+        name: "Data Warehousing of Student Performance Assessments",
         img: bi,
         issued: "Academic Project",
-        desc: "Used Apache NiFi with Power BI to automate the ingestion, processing, and visualization of data from a CSV file.",
+        desc: "Architected an automated ETL pipeline using Apache NiFi to ingest, transform, and load multidimensional data into a MySQL star schema.",
         date: "October 2024",
         category: "Data Engineering",
         details: [
-            "The objective was to build an end-to-end automated data pipeline for business intelligence. The system was designed to pull data from a source, process it, and present it in an interactive dashboard.",
-            "Apache NiFi was used to manage the data flow, automatically ingesting raw data from a CSV file, performing necessary cleaning and transformation steps. The processed data was then fed directly into Microsoft Power BI, enabling the creation of dynamic, real-time dashboards for insightful data visualization."
+            "Architected an automated ETL pipeline using Apache NiFi to ingest and cleanse multifaceted CSV data.",
+            "Transformed and loaded multidimensional data into a MySQL star schema.",
+            "Designed interactive Power BI dashboards to track, visualize, and assess student performance metrics."
         ]
     },
     {
-        name: "Cryptographic key rotation optimization",
+        name: "Dynamic Cryptographic Key Rotation with Deep Reinforcement Learning",
         img: crypt,
         issued: "DeepFlow AI Hackathon",
-        desc: "A proof of concept for DeepFlow AI Hackathon, winning first place from the technical jury.",
+        desc: "Won 1st place among 30 teams at the DeepFlow AI Hackathon by developing a quantum-resilient cyber defense strategy.",
         date: "October 2024",
         category: "AI/ML",
         details: [
-            "This project, which won first place from the technical jury, aimed to find the optimal policy for rotating cryptographic keys to balance security with computational cost. The problem was framed as a reinforcement learning challenge.",
-            "A Deep Q-Network (DQN) agent was built using Tensorflow. The agent was trained in a custom environment, created with the OpenAI Gym toolkit, that simulated security threats and system overhead. The trained agent learned a dynamic rotation policy that proved more effective than traditional, static schedules."
+            "Won 1st place among 30 teams at the DeepFlow AI Hackathon by developing a quantum-resilient cyber defense strategy.",
+            "Evaluated diverse SVM kernels on the KDD dataset to detect network intrusions.",
+            "Engineered a custom OpenAI Gym environment and trained a Deep Q-Network (DQN) agent with a Boltzmann policy to dynamically optimize cryptographic key rotation based on threat patterns."
         ]
     },
     {
@@ -159,30 +179,37 @@ const projectData = [
             "The backend follows a microservice-oriented architecture. A primary Node.js server with Express handles user authentication and API routing, while a separate Python Flask API serves the computationally intensive NLP models, including fine-tuned LLMs for tasks like summarization and sentiment analysis."
         ]
     },
+
+
+
+
     {
-        name: "AI Radiology platform",
-        img: RadAi,
-        issued: "ENSI PCD",
-        desc: "A Django-based web platform for analyzing medical images using CNNs for diagnostic assistance.",
-        date: "Jan-May 2023",
-        category: "Full Stack",
+        name: "Quantum Farm Weather Prediction",
+        img: farm,
+        issued: "Quantum Challenge",
+        desc: "Used QLSTM for long-term prediction and QSVM for short-term prediction and detecting equipment malfunction.",
+        date: "June 2024",
+        category: "Quantum",
         details: [
-            "This academic project involved creating a web-based platform to assist radiologists. The system allows users to upload medical scans and receive an AI-powered analysis.",
-            "The platform was built using the Django framework, with a SQL database to manage patient and image data. The core diagnostic feature was powered by Convolutional Neural Networks (CNNs) trained to classify and identify anomalies in radiological images."
+            "This project explored the application of quantum machine learning to agricultural technology. The primary goal was to create a robust weather prediction model for optimizing farm operations.",
+            "A Quantum Long Short-Term Memory (QLSTM) network was implemented for forecasting long-term weather patterns, while a Quantum Support Vector Machine (QSVM) was used for more immediate, short-term predictions. The QSVM was also effective in detecting anomalies in sensor data, indicating potential equipment malfunctions."
         ]
     },
+
+
+
     {
-        name: "Personal Portfolio",
+        name: "Static React Portfolio Deployed on Vercel",
         img: portfolio,
         issued: "Personal Project",
-        desc: "My personal portfolio website to showcase my skills and projects, built with modern web technologies.",
+        desc: "Designed and developed a responsive personal portfolio using React and Tailwind CSS to showcase projects and experience.",
         date: "Sept - Dec 2023",
         repoLink: "https://github.com/4nisHd/your-portfolio-repo",
-        liveLink: "#",
+        liveLink: "https://anis-benhd.vercel.app",
         category: "Full Stack",
         details: [
-            "This website was built from scratch using React and TailwindCSS, demonstrating my ability to create responsive and aesthetically pleasing user interfaces.",
-            "It is deployed on Firebase, leveraging its hosting capabilities for fast content delivery. The project cards and modal system you are interacting with now are key features of this implementation."
+            "Designed and developed a responsive personal portfolio using React and Tailwind CSS to showcase projects and experience.",
+            "Deployed on Vercel, leveraging clean responsive architecture."
         ]
     },
     {
@@ -220,6 +247,30 @@ const projectData = [
         details: [
             "Essence is a mobile app designed to be a helpful tool for chemistry students. It features an interactive periodic table, a molar mass calculator, and other useful utilities.",
             "The application was built using Flutter and the Dart programming language, allowing for a single codebase to be deployed on both Android and iOS. This project was a great introduction to cross-platform development and state management in Flutter."
+        ]
+    },
+    {
+        name: "Comparative Analysis of Convolutional vs Recurrent Models in NLP",
+        img: cnn,
+        issued: "Academic Project",
+        desc: "Engineered an NLP pipeline and benchmarked varied CNN and RNN architectures in TensorFlow to evaluate data processing efficiency.",
+        date: "October 2023",
+        category: "AI/ML",
+        details: [
+            "Engineered a comprehensive NLP pipeline encompassing text preprocessing, stemming, embedding, and vectorization.",
+            "Designed and benchmarked varied CNN and RNN architectures (incorporating LSTM and Attention mechanisms) in TensorFlow to evaluate sequential data data processing efficiency."
+        ]
+    },
+    {
+        name: "Multi-Agent Energy Distribution System",
+        img: mcode,
+        issued: "Academic Project",
+        desc: "Programmed a distributed multi-agent system using JADE to optimize power grid energy distribution and load balancing.",
+        date: "May 2023",
+        category: "Systems",
+        details: [
+            "Programmed a distributed multi-agent system using JADE to optimize power grid energy distribution and load balancing.",
+            "Implemented Source, Consumer, and Utility agents communicating via standard ACL for real-time state synchronization."
         ]
     }
 ];

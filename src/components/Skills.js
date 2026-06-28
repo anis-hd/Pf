@@ -108,13 +108,13 @@ export default function Skills() {
                             <div className="text-2xl font-bold text-slate-900">
                                 AI/ML
                             </div>
-                            <p className="text-slate-600 text-sm mt-1">PyTorch, TensorFlow, Hugging Face, LangChain</p>
+                            <p className="text-slate-600 text-sm mt-1">PyTorch, TensorFlow, Hugging Face, Agentic Workflows</p>
                         </div>
                         <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-blue-500/30 hover:shadow-md transition-all duration-300 group">
                             <div className="text-2xl font-bold text-slate-900">
                                 Frontend
                             </div>
-                            <p className="text-slate-600 text-sm mt-1">React, Flutter, Tailwind, HTML</p>
+                            <p className="text-slate-600 text-sm mt-1">React, NextJs, Flutter, Tailwind </p>
                         </div>
                         <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-blue-500/30 hover:shadow-md transition-all duration-300 group">
                             <div className="text-2xl font-bold text-slate-900">

@@ -33,7 +33,7 @@ export default function Footer() {
                 Anis Ben Houidi
               </h3>
               <p className="text-slate-500 mt-2 text-sm">
-                Computer Science Engineer • AI Engineer
+                Software Engineer • AI Engineer
               </p>
             </div>
 
