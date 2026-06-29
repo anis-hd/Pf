@@ -5,13 +5,13 @@ export default function Education() {
     const educationData = [
         {
             school: "National School of Computer Science",
-            degree: "M.Eng Computer Science, AI & Decision Systems",
+            degree: "Engineer's Degree, Computer Science - AI & Decision Systems",
             description: "Computer science, software engineering and applied mathematics.",
             year: "2021 - 2025"
         },
         {
             school: "Preparatory Institute for Engineering Studies of Nabeul",
-            degree: "Physics and Chemistry",
+            degree: "Mathematics, Physics & Computer Science",
             description: "Two years of intensive studies in Mathematics, Physics and Industrial Sciences for the national engineering contest.",
             year: "2019 - 2021"
         }
