@@ -6,7 +6,7 @@ export default function Education() {
         {
             school: "National School of Computer Science",
             degree: "Engineer's Degree, Computer Science - AI & Decision Systems",
-            description: "Computer science, software engineering and applied mathematics.",
+            description: " Artificial Intelligence, Software Architecture, and Multi-Agent Systems.",
             year: "2021 - 2025"
         },
         {
