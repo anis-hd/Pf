@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 
 import Experience from './components/Experience';
 import HyperRaftPage from './components/HyperRaftPage';
+import FruitFlyPage from './components/FruitFlyPage';
 
 // Home page component
 function HomePage() {
@@ -43,6 +44,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/hyperraft" element={<HyperRaftPage />} />
+        <Route path="/fruitfly" element={<FruitFlyPage />} />
       </Routes>
     </Router>
   );

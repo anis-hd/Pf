@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendar, faTimes, faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
@@ -22,7 +23,23 @@ import map from "../assets/projects/map.jpg";
 import sketch from "../assets/projects/sketch.jpg";
 import cnn from "../assets/skills/cnn.webp";
 import tunibot from "../assets/skills/tunibot.png";
+import walkVideo from "../assets/walk.mp4";
 const projectData = [
+    {
+        name: "Fruit-Fly Connectome Digital Twin",
+        video: walkVideo,
+        issued: "Personal Project",
+        desc: "Real-time spiking digital twin of the adult male fruit-fly CNS built on the Male CNS v1.0 connectome — behavior emerges from real synaptic weights plus live sensory drive, no trained controller.",
+        date: "2026",
+        repoLink: "https://github.com/anis-hd/fruit-fly-connectome-digital-twin",
+        pageLink: "/fruitfly",
+        category: "AI/ML",
+        details: [
+            "A real-time spiking digital twin of the adult male fruit-fly central nervous system. The anatomical wiring comes from the Male CNS v1.0 connectome (~211k annotated neurons, ~152M synapses), and every neuron is simulated as a spiking leaky integrate-and-fire unit updated every 1 ms.",
+            "Each connection is signed by predicted neurotransmitter (excitatory / inhibitory) and input-normalized per neuron. The body is a physically simulated fly with 42 leg joint drives, tripod walking, and 12 sensory channels (smell, touch, taste, vision, wind, temperature, humidity, proprioception) that Poisson-drive only their matching biological subsets.",
+            "Motor spike rates steer left/right amplitude, turn and speed through a recruitment curve and gait gears. Visualization is fully live: 3D brain spikes, scrolling raster, rate plots and follow-camera body telemetry."
+        ]
+    },
     {
         name: "TuniBot: Multi-Agent AI that Speaks Tunisian",
         img: tunibot,
@@ -339,11 +356,22 @@ export default function Projects() {
                                 <div className="relative rounded-2xl bg-white border border-slate-200 overflow-hidden shadow-sm hover:border-blue-500/30 hover:shadow-md transition-all duration-300 h-full flex flex-col">
                                     {/* Image */}
                                     <div className="relative h-48 overflow-hidden">
-                                        <img
-                                            src={project.img}
-                                            alt={project.name}
-                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                        />
+                                        {project.video ? (
+                                            <video
+                                                src={project.video}
+                                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                                autoPlay
+                                                loop
+                                                muted
+                                                playsInline
+                                            />
+                                        ) : (
+                                            <img
+                                                src={project.img}
+                                                alt={project.name}
+                                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                            />
+                                        )}
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
                                         {/* Category Badge */}
@@ -396,6 +424,15 @@ export default function Projects() {
                                                     <FontAwesomeIcon icon={faGlobe} />
                                                 </a>
                                             )}
+                                            {project.pageLink && (
+                                                <Link
+                                                    to={project.pageLink}
+                                                    onClick={(e) => e.stopPropagation()}
+                                                    className="text-slate-400 hover:text-blue-600 transition-colors"
+                                                >
+                                                    <FontAwesomeIcon icon={faGlobe} />
+                                                </Link>
+                                            )}
                                             <span className="ml-auto text-xs text-slate-400 group-hover:text-blue-600 transition-colors">
                                                 Click for details →
                                             </span>
@@ -428,12 +465,24 @@ export default function Projects() {
 
                         {/* Modal Image */}
                         <div className="relative h-64">
-                            <img
-                                src={selectedProject.img}
-                                alt={selectedProject.name}
-                                className="w-full h-full object-cover"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
+                            {selectedProject.video ? (
+                                <video
+                                    src={selectedProject.video}
+                                    className="w-full h-full object-cover"
+                                    controls
+                                    autoPlay
+                                    loop
+                                    muted
+                                    playsInline
+                                />
+                            ) : (
+                                <img
+                                    src={selectedProject.img}
+                                    alt={selectedProject.name}
+                                    className="w-full h-full object-cover"
+                                />
+                            )}
+                            <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent pointer-events-none" />
                         </div>
 
                         {/* Modal Content */}
@@ -491,6 +540,15 @@ export default function Projects() {
                                         <FontAwesomeIcon icon={faGlobe} />
                                         Live Demo
                                     </a>
+                                )}
+                                {selectedProject.pageLink && (
+                                    <Link
+                                        to={selectedProject.pageLink}
+                                        className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 shadow-sm hover:shadow transition-all duration-300"
+                                    >
+                                        <FontAwesomeIcon icon={faGlobe} />
+                                        View Full Page
+                                    </Link>
                                 )}
                             </div>
                         </div>
