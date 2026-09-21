@@ -15,7 +15,6 @@ import crypt from "../assets/certs/crypt.jpg";
 import bigdata from "../assets/certs/bigdata.jpg";
 import bi from "../assets/certs/bi.webp";
 import ophthalmo from "../assets/projects/ophthalmo.jpg";
-import farm from "../assets/projects/farm.jpg";
 import hr from "../assets/projects/hr.jpg";
 import smiles from "../assets/projects/smiles.jpg";
 import wifi from "../assets/projects/wifi.jpg";
@@ -201,21 +200,6 @@ const projectData = [
 
 
     {
-        name: "Quantum Farm Weather Prediction",
-        img: farm,
-        issued: "Quantum Challenge",
-        desc: "Used QLSTM for long-term prediction and QSVM for short-term prediction and detecting equipment malfunction.",
-        date: "June 2024",
-        category: "Quantum",
-        details: [
-            "This project explored the application of quantum machine learning to agricultural technology. The primary goal was to create a robust weather prediction model for optimizing farm operations.",
-            "A Quantum Long Short-Term Memory (QLSTM) network was implemented for forecasting long-term weather patterns, while a Quantum Support Vector Machine (QSVM) was used for more immediate, short-term predictions. The QSVM was also effective in detecting anomalies in sensor data, indicating potential equipment malfunctions."
-        ]
-    },
-
-
-
-    {
         name: "Static React Portfolio Deployed on Vercel",
         img: portfolio,
         issued: "Personal Project",
@@ -292,7 +276,7 @@ const projectData = [
     }
 ];
 
-const categories = ["All", "AI/ML", "Data Engineering", "Full Stack", "Systems", "Mobile", "Quantum"];
+const categories = ["All", "AI/ML", "Data Engineering", "Full Stack", "Systems", "Mobile"];
 
 export default function Projects() {
     const [selectedProject, setSelectedProject] = useState(null);
