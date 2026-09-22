@@ -515,12 +515,12 @@ python codec_processing.py \\
                     <h2 className="text-3xl font-bold mb-8 text-center text-slate-900">Project Structure</h2>
                     <div className="bg-white border border-slate-200 rounded-xl p-6 font-mono text-sm shadow-sm">
                         <div className="space-y-2 text-slate-600">
-                            <p><span className="text-purple-600 font-semibold">📄 codec_processing.py</span> — Core VideoCodec class with Encoders, Decoders, Warping layers</p>
-                            <p><span className="text-purple-600 font-semibold">📄 new_train.py</span> — Main training script with 3-phase training loop</p>
-                            <p><span className="text-blue-600 font-semibold">📁 codec_checkpoints_*/</span> — Model checkpoints</p>
-                            <p><span className="text-blue-600 font-semibold">📁 training_plots/</span> — Metric plots from training</p>
-                            <p><span className="text-blue-600 font-semibold">📁 visualization_*/</span> — Reconstructed frames, flow maps, residuals</p>
-                            <p><span className="text-blue-600 font-semibold">📁 benchmark/</span> — Performance graphs, RD curves, architecture diagrams</p>
+                            <p><span className="text-purple-600 font-semibold">📄 codec_processing.py</span> : Core VideoCodec class with Encoders, Decoders, Warping layers</p>
+                            <p><span className="text-purple-600 font-semibold">📄 new_train.py</span> : Main training script with 3-phase training loop</p>
+                            <p><span className="text-blue-600 font-semibold">📁 codec_checkpoints_*/</span> : Model checkpoints</p>
+                            <p><span className="text-blue-600 font-semibold">📁 training_plots/</span> : Metric plots from training</p>
+                            <p><span className="text-blue-600 font-semibold">📁 visualization_*/</span> : Reconstructed frames, flow maps, residuals</p>
+                            <p><span className="text-blue-600 font-semibold">📁 benchmark/</span> : Performance graphs, RD curves, architecture diagrams</p>
                         </div>
                     </div>
                 </div>

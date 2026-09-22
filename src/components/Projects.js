@@ -28,7 +28,7 @@ const projectData = [
         name: "Fruit-Fly Connectome Digital Twin",
         video: walkVideo,
         issued: "Personal Project",
-        desc: "Real-time spiking digital twin of the adult male fruit-fly CNS built on the Male CNS v1.0 connectome — behavior emerges from real synaptic weights plus live sensory drive, no trained controller.",
+        desc: "Real-time spiking digital twin of the adult male fruit-fly CNS built on the Male CNS v1.0 connectome, behavior emerges from real synaptic weights plus live sensory drive, no trained controller.",
         date: "2026",
         repoLink: "https://github.com/anis-hd/fruit-fly-connectome-digital-twin",
         pageLink: "/fruitfly",

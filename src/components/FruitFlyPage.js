@@ -107,7 +107,7 @@ export default function FruitFlyPage() {
                     <p className="text-lg md:text-xl text-slate-600 max-w-4xl mb-8 leading-relaxed">
                         A real-time spiking twin of the adult male fruit-fly central nervous system built directly on the{' '}
                         <span className="text-purple-600 font-semibold">Male CNS v1.0 wiring diagram (~211k neurons, ~152M synapses)</span>.
-                        Every neuron is a spiking unit — <span className="text-emerald-600 font-semibold">no trained controller</span>, behavior
+                        Every neuron is a spiking unit, <span className="text-emerald-600 font-semibold">no trained controller</span>; behavior
                         emerges from real synaptic weights plus <span className="text-blue-600 font-semibold">live sensory drive</span> into a
                         physically simulated walking body.
                     </p>
@@ -153,7 +153,7 @@ export default function FruitFlyPage() {
                 <div className="max-w-5xl mx-auto">
                     <h2 className="text-3xl font-bold mb-8 text-slate-900 text-center">Demo Video</h2>
                     <p className="text-center text-slate-500 mb-8">
-                        Live follow-camera of the physics fly — every step is steered by mean spike rates in the leg and descending motor pools
+                        Live follow-camera of the physics fly, where every step is steered by mean spike rates in the leg and descending motor pools
                     </p>
                     <div className="relative max-w-4xl mx-auto">
                         <div className="relative rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-lg">
@@ -173,7 +173,7 @@ export default function FruitFlyPage() {
                         <p className="text-slate-600 leading-relaxed text-lg">
                             This project is a <strong className="text-slate-900">real-time spiking digital twin of the adult male fruit-fly central
                             nervous system</strong>. The anatomical wiring comes from the Male CNS v1.0 connectome, and every neuron is simulated
-                            as a spiking unit. There is no trained controller — behavior emerges from real synaptic weights plus live sensory drive.
+                            as a spiking unit. There is no trained controller, behavior emerges from real synaptic weights plus live sensory drive.
                         </p>
                         <p className="text-slate-600 leading-relaxed text-lg mt-4">
                             The <strong className="text-purple-600 font-semibold">brain</strong> is a custom spiking network built directly on the
@@ -190,7 +190,7 @@ export default function FruitFlyPage() {
                         </div>
                         <div>
                             <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Dataset used</p>
-                            <h3 className="text-xl font-semibold text-slate-900 mb-2">Male CNS v1.0 — Janelia</h3>
+                            <h3 className="text-xl font-semibold text-slate-900 mb-2">Male CNS v1.0 : Janelia</h3>
                             <p className="text-slate-600 text-sm leading-relaxed">
                                 Anatomical wiring (~211k annotated neurons, ~152M synapses) from the Janelia Male CNS v1.0
                                 connectome. Every node and synaptic weight in the spiking network comes from this dataset.
@@ -220,7 +220,7 @@ export default function FruitFlyPage() {
                         <FeatureCard
                             icon={faEye}
                             title="12-Channel Sensory Drive"
-                            description="Smell, stereo left/right smell, touch, taste, wind/speed, light, warm, cool, left/right proprioception and humidity — each Poisson-driving only its matching biological subset."
+                            description="Smell, stereo left/right smell, touch, taste, wind/speed, light, warm, cool, left/right proprioception and humidity, each Poisson-driving only its matching biological subset."
                             gradient="from-blue-500 to-cyan-500"
                         />
                         <FeatureCard
@@ -250,11 +250,11 @@ export default function FruitFlyPage() {
                 <div className="max-w-7xl mx-auto">
                     <h2 className="text-3xl font-bold mb-4 text-center text-slate-900">How It Works</h2>
                     <p className="text-slate-500 text-center mb-12">
-                        Brain network, body senses, actuators and simulation loop — all driven by real spikes.
+                        Brain network, body senses, actuators and simulation loop, all driven by real spikes.
                     </p>
 
                     <div className="space-y-4">
-                        <CollapsibleSection title="🧠 1. Brain — connectome graph">
+                        <CollapsibleSection title="🧠 1. Brain : connectome graph">
                             <p className="text-slate-600 leading-relaxed mb-4">
                                 Each node is a neuron, each edge is a synaptic connection weighted by synapse count. Weak, self and
                                 unannotated connections are filtered out, leaving a large sparse directed graph of tens of thousands of
@@ -262,12 +262,12 @@ export default function FruitFlyPage() {
                             </p>
                             <ul className="list-disc list-inside space-y-2 text-slate-600 text-sm leading-relaxed">
                                 <li><strong className="text-slate-900">Signed by neurotransmitter:</strong> acetylcholine-like excites (+1); GABA / glutamate / histamine-like inhibits (−1); serotonin, dopamine, octopamine treated as weakly excitatory; missing predictions default to excitatory.</li>
-                                <li><strong className="text-slate-900">Input-normalized:</strong> each neuron&apos;s total input strength is scaled to a common gain so highly connected neurons don&apos;t dominate — stimulus responses stand out and activity stays stable.</li>
+                                <li><strong className="text-slate-900">Input-normalized:</strong> each neuron&apos;s total input strength is scaled to a common gain so highly connected neurons don&apos;t dominate, allowing stimulus responses to stand out and activity to stay stable.</li>
                                 <li><strong className="text-slate-900">Functional zones:</strong> sensory and motor neurons identified from cell type, nerve, brain region and receptor labels (olfactory, visual, gustatory, mechanosensory, chordotonal / Johnston&apos;s organ, thermo, hygro, ascending as sensory; motor as motor), with graph in/out-degree as fallback.</li>
                             </ul>
                         </CollapsibleSection>
 
-                        <CollapsibleSection title="⚡ 2. Brain — neuron dynamics">
+                        <CollapsibleSection title="⚡ 2. Brain : neuron dynamics">
                             <p className="text-slate-600 leading-relaxed mb-4">
                                 Each neuron is a leaky integrate-and-fire unit updated every 1 ms: voltage decays slightly, adds input
                                 current, spikes on threshold crossing (unless refractory), then resets to zero with a 2 ms refractory period.
@@ -282,7 +282,7 @@ if voltage >= threshold and not refractory:
                                 <div className="relative rounded-xl overflow-hidden border border-slate-200 bg-slate-50 shadow-inner max-w-2xl w-full">
                                     <img src={lifImg} alt="Leaky integrate-and-fire neuron dynamics" className="w-full h-auto object-contain" loading="lazy" />
                                 </div>
-                                <p className="text-center text-slate-500 text-sm mt-2 italic">Leaky integrate-and-fire dynamics — decay, integrate, spike, reset</p>
+                                <p className="text-center text-slate-500 text-sm mt-2 italic">Leaky integrate-and-fire dynamics: decay, integrate, spike, reset</p>
                             </div>
                             <p className="text-slate-600 leading-relaxed mt-4 text-sm">
                                 Spikes are binary events. The whole-brain state is just voltages plus a spike vector, computed as one large
@@ -290,32 +290,32 @@ if voltage >= threshold and not refractory:
                             </p>
                         </CollapsibleSection>
 
-                        <CollapsibleSection title="👁️ 3. Body — sensors (12 channels)">
+                        <CollapsibleSection title="👁️ 3. Body : sensors (12 channels)">
                             <p className="text-slate-500 mb-4 text-sm">
                                 The physics fly walks on flat or blocky terrain in an arena with a food berry, a warm spot, a cool spot and a
                                 humid spot. Each step reports 0..1 levels, converted back into Poisson drive into only the matching anatomical subset.
                             </p>
                             <div>
                                 <SenseRow name="smell" description="Falls with distance to food, 1 when on top of it." />
-                                <SenseRow name="left / right smell" description="Smell split by whether food is left or right of heading — stereo olfaction for turning toward food." />
+                                <SenseRow name="left / right smell" description="Smell split by whether food is left or right of heading: stereo olfaction for turning toward food." />
                                 <SenseRow name="touch" description="Ground contact force on feet, reported as total plus left and right maxima." />
                                 <SenseRow name="taste" description="1 within eating distance of the berry, else 0. Eating fills satiety, then the berry respawns elsewhere." />
-                                <SenseRow name="speed / wind" description="Thorax speed from frame-to-frame displacement — walking speed and wind / airflow sense." />
+                                <SenseRow name="speed / wind" description="Thorax speed from frame-to-frame displacement: walking speed and wind / airflow sense." />
                                 <SenseRow name="light" description="Baseline plus speed-dependent optic-flow proxy." />
-                                <SenseRow name="warm / cool" description="Virtual temperature field — ambient 25°C with warm Gaussian bump (~33°C) and cool dip (~17°C), split into separate channels." />
+                                <SenseRow name="warm / cool" description="Virtual temperature field: ambient 25°C with warm Gaussian bump (~33°C) and cool dip (~17°C), split into separate channels." />
                                 <SenseRow name="humid" description="Virtual humidity field with moist peak decaying to ambient dry." />
                                 <SenseRow name="proprio L / R" description="Leg joint angles and velocities vs neutral stance, averaged separately for left and right legs." />
                             </div>
                         </CollapsibleSection>
 
-                        <CollapsibleSection title="🦵 4. Body — actuators (walking)">
+                        <CollapsibleSection title="🦵 4. Body : actuators (walking)">
                             <p className="text-slate-600 leading-relaxed mb-4">
                                 The fly has 42 active leg joint drives plus switchable foot adhesion. Walking comes from a tripod central pattern
                                 generator: six oscillators (LF, LM, LH, RF, RM, RH) in anti-phase tripod pattern, mapped through preprogrammed
                                 leg kinematics with adhesion timed to stance phase.
                             </p>
                             <ul className="list-disc list-inside space-y-2 text-slate-600 text-sm leading-relaxed">
-                                <li>The brain does not set joints directly — it sets <strong className="text-slate-900">left amplitude, right amplitude, turn and speed</strong>.</li>
+                                <li>The brain does not set joints directly, it sets <strong className="text-slate-900">left amplitude, right amplitude, turn and speed</strong>.</li>
                                 <li>Tiny motor spike fractions (~0..0.03) are expanded by a recruitment curve to 0..1 amplitudes; left follows left descending / leg / motor activity, right mirrors it; speed follows overall descending / motor activity; turn follows left-right difference with a deadband.</li>
                                 <li>All drives are smoothed so gait doesn&apos;t jitter. Speed selects a gait gear: slow amble ~5 Hz, walk ~8 Hz, fast stride ~12 Hz, with hysteresis.</li>
                                 <li>Body auto-settles to stance at start, stays quiet briefly, and respawns if tipped over or invalid.</li>
@@ -398,7 +398,7 @@ if voltage >= threshold and not refractory:
                         <div className="p-6 bg-white border border-slate-200 rounded-2xl shadow-sm">
                             <FontAwesomeIcon icon={faVideo} className="text-2xl text-emerald-600 mb-3" />
                             <h3 className="font-semibold text-lg mb-2 text-slate-900">Body View</h3>
-                            <p className="text-slate-600 text-sm leading-relaxed">Live follow-camera video of the physics fly plus telemetry — distance to food, amount eaten, touch, speed, temperature, humidity, proprioception, drive amplitudes and arena position. Controls: run, pause, reset, stimulate sensory / whole brain, drop food, reset body.</p>
+                            <p className="text-slate-600 text-sm leading-relaxed">Live follow-camera video of the physics fly plus telemetry: distance to food, amount eaten, touch, speed, temperature, humidity, proprioception, drive amplitudes and arena position. Controls: run, pause, reset, stimulate sensory / whole brain, drop food, reset body.</p>
                         </div>
                     </div>
                 </div>
@@ -428,7 +428,7 @@ if voltage >= threshold and not refractory:
                         Emergent Behavior, No Controller
                     </h2>
                     <p className="text-slate-600 mb-8 max-w-2xl mx-auto">
-                        Movement here is not learned or scripted — it is read out from real connectome dynamics driven by the world.
+                        Movement here is not learned or scripted; it is read out from real connectome dynamics driven by the world.
                         Stimulate the senses and watch the motor pools respond.
                     </p>
                     <div className="flex flex-wrap justify-center gap-4">
