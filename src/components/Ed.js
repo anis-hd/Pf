@@ -7,13 +7,13 @@ export default function Education() {
             school: "National School of Computer Science",
             degree: "Engineer's Degree, Computer Science - AI & Decision Systems",
             description: " Artificial Intelligence, Software Architecture, and Multi-Agent Systems.",
-            year: "2021 - 2025"
+            year: "2022 - 2025"
         },
         {
             school: "Preparatory Institute for Engineering Studies of Nabeul",
             degree: "Mathematics, Physics & Computer Science",
             description: "Two years of intensive studies in Mathematics, Physics and Industrial Sciences for the national engineering contest.",
-            year: "2019 - 2021"
+            year: "2020 - 2022"
         }
     ];
 
