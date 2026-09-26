@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendar, faTimes, faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
@@ -23,6 +23,7 @@ import sketch from "../assets/projects/sketch.jpg";
 import cnn from "../assets/skills/cnn.webp";
 import tunibot from "../assets/skills/tunibot.png";
 import walkVideo from "../assets/walk.mp4";
+import hyperraftVideo from "../assets/hyperraft.mp4";
 const projectData = [
     {
         name: "Fruit-Fly Connectome Digital Twin",
@@ -37,6 +38,21 @@ const projectData = [
             "A real-time spiking digital twin of the adult male fruit-fly central nervous system. The anatomical wiring comes from the Male CNS v1.0 connectome (~211k annotated neurons, ~152M synapses), and every neuron is simulated as a spiking leaky integrate-and-fire unit updated every 1 ms.",
             "Each connection is signed by predicted neurotransmitter (excitatory / inhibitory) and input-normalized per neuron. The body is a physically simulated fly with 42 leg joint drives, tripod walking, and 12 sensory channels (smell, touch, taste, vision, wind, temperature, humidity, proprioception) that Poisson-drive only their matching biological subsets.",
             "Motor spike rates steer left/right amplitude, turn and speed through a recruitment curve and gait gears. Visualization is fully live: 3D brain spikes, scrolling raster, rate plots and follow-camera body telemetry."
+        ]
+    },
+    {
+        name: "RDVC: Raft Deep Video Compression",
+        video: hyperraftVideo,
+        issued: "Final Year Project - ENSI x Talan Tunisie",
+        desc: "Hybrid learned video codec combining RAFT optical flow, hyperprior entropy coding and quantum-inspired I-frame encoding. 80% of frames are reconstructed during decoding.",
+        date: "2025",
+        repoLink: "https://github.com/anis-hd/PFE-RAFT-and-hyperprior-based-learned-video-compression",
+        pageLink: "/hyperraft",
+        category: "AI/ML",
+        details: [
+            "Final Year Project developed at Talan Tunisie in collaboration with ENSI. The system addresses the limitations of traditional codecs with a deep learning-based inter-frame compression pipeline.",
+            "It integrates RAFT for optical flow estimation and Hyperprior Autoencoders for entropy coding, with motion and residual branches, multi-phase training (GT flow, end-to-end, MS-SSIM fine-tuning) and post-processing (temporal IIR filtering, histogram matching).",
+            "Videos are encoded into a custom .rdvc bitstream and evaluated on the UVG dataset with rate-distortion curves for PSNR and MS-SSIM."
         ]
     },
     {
@@ -281,8 +297,13 @@ const categories = ["All", "AI/ML", "Data Engineering", "Full Stack", "Systems",
 export default function Projects() {
     const [selectedProject, setSelectedProject] = useState(null);
     const [activeCategory, setActiveCategory] = useState("All");
+    const navigate = useNavigate();
 
     const handleCardClick = (project) => {
+        if (project.pageLink) {
+            navigate(project.pageLink);
+            return;
+        }
         setSelectedProject(project);
     };
 
@@ -418,7 +439,7 @@ export default function Projects() {
                                                 </Link>
                                             )}
                                             <span className="ml-auto text-xs text-slate-400 group-hover:text-blue-600 transition-colors">
-                                                Click for details →
+                                                {project.pageLink ? "View Full Page →" : "Click for details →"}
                                             </span>
                                         </div>
                                     </div>
